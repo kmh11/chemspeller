@@ -15,6 +15,6 @@ function _elementSpell(word, spelling) {
 }
 
 function elementSpell() {
-	try {alert(_elementSpell(document.getElementById("wordInput").value, []).reverse().join(" "));}
-	catch(e) {alert("That word cannot be spelled with elements.");}
+	try {document.getElementById("answer").innerHTML = "<b>"+_elementSpell(document.getElementById("wordInput").value, []).reverse().join(" ")+"</b>";}
+	catch(e) {document.getElementById("answer").innerHTML = "<b>"+"That word cannot be spelled with elements."+"</b>";}
 }
