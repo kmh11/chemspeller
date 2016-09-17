@@ -4,12 +4,13 @@ table {
 }
 .symbol {
 	width: 100px;
-	height: 90px;
+	height: 80px;
 	font-size: 400%;
 	text-align: center;
-	padding: 10px 10px 0px 10px;
+	padding: 0px 10px 0px 10px;
 	border: 1px solid black;
 	border-bottom: 0;
+	border-top: 0;
 }
 .name {
 	height: 10px;
@@ -17,4 +18,14 @@ table {
 	padding-top: 0px;
 	border: 1px solid black;
 	border-top: 0;
+}
+.number {
+	height: 10px;
+	text-align: right;
+	padding-bottom: 0;
+	border: 1px solid black;
+	border-bottom: 0;
+}
+#table {
+	padding-top: 10px;
 }

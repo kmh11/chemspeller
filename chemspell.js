@@ -20,11 +20,16 @@ function elementSpell() {
 	var spelling = _elementSpell(document.getElementById("wordInput").value, []).reverse();
 	table = "<table><tr>";
 	for (i=0; i < spelling.length; i++) {
+		table = table+"<td class=\"number\">"+(symbols.indexOf(symbols[spelling[i]])+1).toString()+"</td>";
+	}
+	table = table+"</tr><tr>"
+	for (i=0; i < spelling.length; i++) {
 		table = table+"<td class=\"symbol\">"+symbols[spelling[i]]+"</td>";
 	}
 	table = table+"</tr><tr>"
 	for (i=0; i < spelling.length; i++) {
 		table = table+"<td class=\"name\">"+names[spelling[i]]+"</td>";
 	}
+	table = table+"</table>"
 	document.getElementById("table").innerHTML = table;
 }
