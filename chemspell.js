@@ -2,7 +2,8 @@ var symbols = ['H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne', 'Na', 'Mg',
 var names = ['Hydrogen', 'Helium', 'Lithium', 'Beryllium', 'Boron', 'Carbon', 'Nitrogen', 'Oxygen', 'Fluorine', 'Neon', 'Sodium', 'Magnesium', 'Aluminium', 'Silicon', 'Phosphorus', 'Sulfur', 'Chlorine', 'Argon', 'Potassium', 'Calcium', 'Scandium', 'Titanium', 'Vanadium', 'Chromium', 'Manganese', 'Iron', 'Cobalt', 'Nickel', 'Copper', 'Zinc', 'Gallium', 'Germanium', 'Arsenic', 'Selenium', 'Bromine', 'Krypton', 'Rubidium', 'Strontium', 'Yttrium', 'Zirconium', 'Niobium', 'Molybdenum', 'Technetium', 'Ruthenium', 'Rhodium', 'Palladium', 'Silver', 'Cadmium', 'Indium', 'Tin', 'Antimony', 'Tellurium', 'Iodine', 'Xenon', 'Caesium', 'Barium', 'Lanthanum', 'Cerium', 'Praseodymium', 'Neodymium', 'Promethium', 'Samarium', 'Europium', 'Gadolinium', 'Terbium', 'Dysprosium', 'Holmium', 'Erbium', 'Thulium', 'Ytterbium', 'Lutetium', 'Hafnium', 'Tantalum', 'Tungsten', 'Rhenium', 'Osmium', 'Iridium', 'Platinum', 'Gold', 'Mercury', 'Thallium', 'Lead', 'Bismuth', 'Polonium', 'Astatine', 'Radon', 'Francium', 'Radium', 'Actinium', 'Thorium', 'Protactinium', 'Uranium', 'Neptunium', 'Plutonium', 'Americium', 'Curium', 'Berkelium', 'Californium', 'Einsteinium', 'Fermium', 'Mendelevium', 'Nobelium', 'Lawrencium', 'Rutherfordium', 'Dubnium', 'Seaborgium', 'Bohrium', 'Hassium', 'Meitnerium', 'Darmstadtium', 'Roentgenium', 'Copernicium', 'Ununtrium', 'Flerovium', 'Ununpentium', 'Livermorium', 'Ununseptium', 'Ununoctium', 'Electron'];
 var symbolLower;
 var table;
-
+var number;
+var symbol;
 function _elementSpell(word, spelling) {
 	word = word.toLowerCase();
 	for (i=0; i < symbols.length; i++) {
@@ -20,11 +21,20 @@ function elementSpell() {
 	var spelling = _elementSpell(document.getElementById("wordInput").value, []).reverse();
 	table = "<table><tr>";
 	for (i=0; i < spelling.length; i++) {
-		table = table+"<td class=\"number\">"+(symbols.indexOf(symbols[spelling[i]])+1).toString()+"</td>";
+		number = (symbols.indexOf(symbols[spelling[i]])+1).toString();
+		if (number === "119") {
+			number = "";
+		}
+		table = table+"<td class=\"number\">"+number+"</td>";
 	}
 	table = table+"</tr><tr>"
 	for (i=0; i < spelling.length; i++) {
-		table = table+"<td class=\"symbol\">"+symbols[spelling[i]]+"</td>";
+		if (symbols[spelling[i]] === "e") {
+			symbol = "e<sup>-</sup>"
+		} else {
+			symbol = symbols[spelling[i]]
+		}
+		table = table+"<td class=\"symbol\">"+symbol+"</td>";
 	}
 	table = table+"</tr><tr>"
 	for (i=0; i < spelling.length; i++) {
