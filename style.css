@@ -1,11 +1,15 @@
 table {
 	border: 1px solid black; 
 	border-spacing: 0;
+	margin: 0 auto;
+}
+input, button {
+	font-size: 1em;
 }
 .symbol {
-	width: 100px;
-	height: 80px;
-	font-size: 400%;
+	width: 2em;
+	height: 1.5em;
+	font-size: 4em;
 	text-align: center;
 	padding: 0px 10px 0px 10px;
 	border: 1px solid black;
@@ -13,26 +17,36 @@ table {
 	border-top: 0;
 }
 .name {
-	height: 10px;
+	font-size: 1em;
+	height: 0.25em;
 	text-align: center;
 	padding-top: 0px;
 	border: 1px solid black;
 	border-top: 0;
 }
 .number {
-	height: 10px;
+	font-size: 1em;
+	height: 0.25em;
 	text-align: right;
-	padding-top: 2px;
-	padding-right: 3px;
+	padding-right: 0.2em;
 	padding-bottom: 0;
 	border: 1px solid black;
 	border-bottom: 0;
 }
 #table {
-	padding-top: 10px;
+	font-size: 1em;
+	padding-top: 0.625em;
+}
+#wrapper {
+	margin: auto;
+	text-align: center;
 }
 sup {
 	vertical-align: baseline;
 	position: relative;
 	top: -0.4em;
+}
+body {
+	font-size:100%;
+	font-size: 2vw;
 }
