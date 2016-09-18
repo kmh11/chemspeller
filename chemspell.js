@@ -23,7 +23,11 @@ function elementSpell() {
 	for (i=0; i < spelling.length; i++) {
 		number = (symbols.indexOf(symbols[spelling[i]])+1).toString();
 		if (number === "119") {
-			number = "";
+			number = "-1";
+		} else if (number === "120") {
+			number = "0"
+		} else if (Number(number) >= 119) {
+			number = ""
 		}
 		table = table+"<td class=\"number\">"+number+"</td>";
 	}
