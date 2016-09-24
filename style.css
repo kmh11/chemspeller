@@ -33,7 +33,7 @@ input, button {
 	border: 1px solid black;
 	border-bottom: 0;
 }
-#table {
+.table {
 	font-size: 1em;
 	padding-top: 0.625em;
 }
@@ -48,5 +48,5 @@ sup {
 }
 body {
 	font-size:100%;
-	font-size: 2vw;
+	font-size: 1.75vw;
 }
