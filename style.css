@@ -40,6 +40,7 @@ input, button {
 #wrapper {
 	margin: auto;
 	text-align: center;
+	font-family: "vera-sans",sans-serif;
 }
 sup {
 	vertical-align: baseline;
