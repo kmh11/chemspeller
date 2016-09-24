@@ -39,7 +39,7 @@ function animateTable(spelling, line) {
 		var j=0;
 		var maxJ = spelling.length;
 		var k=0;
-		var maxK = spelling.length*spelling.length**2-spelling.length/5;
+		var maxK = spelling.length*spelling.length*spelling.length-spelling.length/5;
 		function outerTimeoutLoop() {
 			if (++j < maxJ) {
 				setTimeout(outerTimeoutLoop, delayJ)
