@@ -59,6 +59,8 @@ body {
 	display: inline-block;
 }
 #logoText {
+	padding-left: 0.1em;
+	letter-spacing: 0.1em;
 	display: inline-block;
 	position: relative;
 	bottom: 0.5em;
