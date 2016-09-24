@@ -6,8 +6,8 @@ table {
 input, button {
 	font-size: 1em;
 }
-.symbol {
-	width: 2em;
+.symbol, .symbolLogo {
+	width: 1.9em;
 	height: 1.5em;
 	font-size: 4em;
 	text-align: center;
@@ -16,7 +16,7 @@ input, button {
 	border-bottom: 0;
 	border-top: 0;
 }
-.name {
+.name, .nameLogo {
 	font-size: 1em;
 	height: 0.25em;
 	text-align: center;
@@ -24,7 +24,7 @@ input, button {
 	border: 1px solid black;
 	border-top: 0;
 }
-.number {
+.number, .numberLogo {
 	font-size: 1em;
 	height: 0.25em;
 	text-align: right;
@@ -49,4 +49,20 @@ sup {
 body {
 	font-size:100%;
 	font-size: 1.75vw;
+}
+.symbolLogo, .nameLogo, .numberLogo {
+	font-weight: 600;
+}
+#logoTable {
+	font-size: 0.4em;
+	display: inline-block;
+}
+#logoText {
+	display: inline-block;
+	position: relative;
+	bottom: 0.5em;
+	font-size: 1.5em;
+}
+#logo {
+	height: 5em
 }
