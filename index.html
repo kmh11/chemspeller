@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html>
-	<head>
+	<head id="head">
+		<title>Spell words with the Periodic Table of Elements - ChemSpeller</title>
+		<meta name="description" content = "Use chemical elements and subatomic particles to spell words. Spell your name, your school, anything!">
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<script type="text/javascript" src="chemspell.js"></script>
 		<script src="https://use.typekit.net/pns3kwl.js"></script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		  ga('create', 'UA-84680674-1', 'auto');
+		  ga('send', 'pageview');
+		</script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 	</head>
-	<body>
-		<div id="wrapper">
-			<div id="logo"><div id="logoTable"><table><tbody><tr><td class="numberLogo">6</td><td class="numberLogo">1</td><td class="numberLogo">-1</td><td class="numberLogo"></td></tr><tr><td class="symbolLogo">C</td><td class="symbolLogo">H</	td><td class="symbolLogo">e<sup>-</sup></td><td class="symbolLogo">m</td></tr><tr><td class="nameLogo">Carbon</td><td class="nameLogo">Hydrogen</td><td class="nameLogo">Electron</td><td class="nameLogo">Mass</td></tr></tbody></table></div><div id="logoText"><h1>Speller</h1></div></div>
-			<p>Spell with elements!</p>
+	<body onLoad="color()">
+		<div id="wrapper" class="js">
+			<div id="logo"><div id="logoTable"><table><tbody><tr><td class="numberLogo tableColor">6</td><td class="numberLogo tableColor">1</td><td class="numberLogo tableColor">-1</td><td class="numberLogo tableColor"></td></tr><tr><td class="symbolLogo tableColor">C</td><td class="symbolLogo tableColor">H</	td><td class="symbolLogo tableColor">e<sup>-</sup></td><td class="symbolLogo tableColor">m</td></tr><tr><td class="nameLogo tableColor">Carbon</td><td class="nameLogo tableColor">Hydrogen</td><td class="nameLogo tableColor">Electron</td><td class="nameLogo tableColor">Mass</td></tr></tbody></table></div><div id="logoText"><h1>Speller</h1></div><sup id="TM">TM</sup></div>
+			<p>Spell with elements and subatomic particles!</p>
 			<input type="text" id="wordInput">
 			<button onclick="elementSpell()">Spell it!</button>
 			<div id="tables"></div>
 		</div>
+		<footer>&copy; 2016 Kevin Higgs </footer>
 	</body>
 </html>

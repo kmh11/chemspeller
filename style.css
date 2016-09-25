@@ -69,3 +69,17 @@ body {
 #logo {
 	height: 5em
 }
+input, button {
+	font-family: inherit;
+}
+#TM {
+	vertical-align: top;
+	position: relative;
+	top: 1.9em;
+}
+footer {
+	text-align: center;
+	font-size: 0.5em;
+	vertical-align: bottom;
+	padding-top: 1em;
+}
