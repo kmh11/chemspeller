@@ -34,8 +34,6 @@ function _elementSpell(word, spelling) {
 function animateTable(spelling, line) {
 	if (!spelling) {
 		document.getElementById("tables").innerHTML = "<h1>Impossible!</h1><p>Remeber to avoid special symbols (/.,?!) and to spell out numbers.</p>";
-
-"
 	} else {
 		var delay = 50;
 		var delayJ = spelling.length*50;
