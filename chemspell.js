@@ -33,7 +33,7 @@ function _elementSpell(word, spelling) {
 
 function animateTable(spelling, line) {
 	if (!spelling) {
-		document.getElementById("tables").innerHTML = "<h1>Impossible!</h1><p>Remeber to avoid special symbols (/.,?!) and to spell out numbers.</p>
+		document.getElementById("tables").innerHTML = "<h1>Impossible!</h1><p>Remeber to avoid special symbols (/.,?!) and to spell out numbers.</p>";
 
 "
 	} else {
