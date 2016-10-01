@@ -8,7 +8,7 @@ input, button {
 }
 .symbol, .symbolLogo {
 	width: 1.9em;
-	height: 1.25em;
+	height: 1.5em;
 	font-size: 4em;
 	text-align: center;
 	padding: 0px 10px 0px 10px;
@@ -17,7 +17,8 @@ input, button {
 	border-top: 0;
 }
 .symbolLogo {
-	height: 1.5em;
+	width: 1.9em;
+	height: 1.7em;
 	font-size: 4.25em;
 }
 .name, .nameLogo {
@@ -62,6 +63,15 @@ body {
 .symbolLogo, .nameLogo, .numberLogo {
 	font-weight: 600;
 }
+#logoText p { 
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
 #logoTable {
 	font-size: 0.4em;
 	display: inline-block;
@@ -75,7 +85,7 @@ body {
 	font-size: 1.5em;
 }
 #logo {
-	height: 5em
+	height: 5em;
 }
 input, button, footer {
 	font-family: inherit;
@@ -91,4 +101,22 @@ footer {
 	vertical-align: bottom;
 	padding-top: 1em;
 	font-family: "vera-sans",sans-serif;
+}
+#description {
+	font-weight: 100;
+	font-size: 1em;
+}
+#top {
+	font-size: 1.5em;
+}
+@media only screen and (min-width: 768px) {
+	.symbol {
+		height: 1.4em;
+	}
+	.symbolLogo {
+		height: 1.5em;
+	}
+	#top {
+		font-size: 1em;
+	}
 }
