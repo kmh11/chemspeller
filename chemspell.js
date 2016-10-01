@@ -104,9 +104,10 @@ function elementSpell() {
 	word = document.getElementById("wordInput").value.toLowerCase();
 
 	words = word.split(" ");
-
-	for (c=0; c < words.length; c++) {
-		document.getElementById("tables").innerHTML += "<div id="+c.toString()+" class=\"table\"></div>"
-		animateTable(_elementSpell(words[c], []), c);
+	if (words[0] != "") {
+		for (c=0; c < words.length; c++) {
+			document.getElementById("tables").innerHTML += "<div id="+c.toString()+" class=\"table\"></div>"
+			animateTable(_elementSpell(words[c], []), c);
+		}
 	}
 }
