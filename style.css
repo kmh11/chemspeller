@@ -1,3 +1,6 @@
+body {
+	margin: 0;
+}
 table {
 	border: 1px solid black; 
 	border-spacing: 0;
@@ -99,7 +102,7 @@ footer {
 	text-align: center;
 	font-size: 0.5em;
 	vertical-align: bottom;
-	padding-top: 1em;
+	padding-top: 0.5em;
 	font-family: "vera-sans",sans-serif;
 }
 #description {
