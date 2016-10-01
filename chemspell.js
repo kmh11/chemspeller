@@ -107,7 +107,7 @@ function makeTable(spelling, line) {
 function color() {
 	colorNum = Math.floor(Math.random()*colors.length);
 	if (Math.floor(Math.random()*50) === 1 || getQueryVariable("trick") === "rainbow") {
-			document.getElementById("color").innerHTML = "<style>body {background-image: url(\"http://i.giphy.com/hbNYCTtOVUu0U.gif\"); background-size: 100%;} .symbol, .symbolLogo {background-image: url(\"http://i556.photobucket.com/albums/ss10/qanibal16/Rainbow-animated.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
+			document.getElementById("color").innerHTML = "<style>body {background-image: url(\"images/rainbow-tunnel.gif\"); background-size: 100%;} .symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
 	} else {
 			document.getElementById("color").innerHTML = "<style>.tableColor {background-color: "+colors[colorNum]+";} body {background-color: "+bgcolors[colorNum]+"} </style>";
 	}
