@@ -1,6 +1,3 @@
-body {
-	margin: 0;
-}
 table {
 	border: 1px solid black; 
 	border-spacing: 0;
@@ -62,6 +59,7 @@ sup {
 body {
 	font-size:100%;
 	font-size: 1.75vw;
+	margin: 0;
 }
 .symbolLogo, .nameLogo, .numberLogo {
 	font-weight: 600;
