@@ -4,11 +4,11 @@ table {
 	margin: 0 auto;
 }
 input, button {
-	font-size: 1em;
+	font-size: 2em;
 }
 .symbol, .symbolLogo {
 	width: 1.9em;
-	height: 1.5em;
+	height: 1.7em;
 	font-size: 4em;
 	text-align: center;
 	padding: 0px 10px 0px 10px;
@@ -17,8 +17,8 @@ input, button {
 	border-top: 0;
 }
 .symbolLogo {
-	width: 1.9em;
-	height: 1.7em;
+	width: 2em;
+	height: 1.9em;
 	font-size: 4.25em;
 }
 .name, .nameLogo {
@@ -81,7 +81,7 @@ body {
 	letter-spacing: 0.1em;
 	display: inline-block;
 	position: relative;
-	bottom: 0.5em;
+	bottom: 0.9em;
 	font-size: 1.5em;
 }
 #logo {
@@ -107,7 +107,25 @@ footer {
 	font-size: 1em;
 }
 #top {
-	font-size: 1.5em;
+	font-size: 1.3em;
+}
+@media only screen and (min-width: 410px) {
+	.symbol {
+		height: 1.5em;
+	}
+	.symbolLogo {
+		height: 1.7em;
+	}
+	#top {
+		font-size: 1.5em;
+	}
+	input, button {
+		font-size: 1.5em
+	}
+	#logoText {
+		position: relative;
+		bottom: 0.7em;
+	}
 }
 @media only screen and (min-width: 768px) {
 	.symbol {
@@ -118,5 +136,12 @@ footer {
 	}
 	#top {
 		font-size: 1em;
+	}
+	input, button {
+		font-size: 1em;
+	}
+	#logoText {
+		position: relative;
+		bottom: 0.5em;
 	}
 }
