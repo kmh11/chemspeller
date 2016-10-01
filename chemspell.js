@@ -13,6 +13,17 @@ var matches;
 var showSpelling;
 var line;
 
+//From https://css-tricks.com/snippets/javascript/get-url-variables/
+function getQueryVariable(variable) {
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+
 function _elementSpell(word, spelling) {
 	if (word === "") {
 		return spelling;
@@ -95,7 +106,11 @@ function makeTable(spelling, line) {
 
 function color() {
 	colorNum = Math.floor(Math.random()*colors.length);
-	document.getElementById("color").innerHTML = "<style>.tableColor {background-color: "+colors[colorNum]+";} body {background-color: "+bgcolors[colorNum]+"}</style>";
+	if (Math.floor(Math.random()*50) === 1 || getQueryVariable("trick") === "rainbow") {
+			document.getElementById("color").innerHTML = "<style>body {background-image: url(\"http://i.giphy.com/hbNYCTtOVUu0U.gif\"); background-size: 100%;} .symbol, .symbolLogo {background-image: url(\"http://i556.photobucket.com/albums/ss10/qanibal16/Rainbow-animated.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
+	} else {
+			document.getElementById("color").innerHTML = "<style>.tableColor {background-color: "+colors[colorNum]+";} body {background-color: "+bgcolors[colorNum]+"} </style>";
+	}
 }
 
 function elementSpell() {
