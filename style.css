@@ -8,7 +8,7 @@ input, button {
 }
 .symbol, .symbolLogo {
 	width: 1.9em;
-	height: 1.5em;
+	height: 1.25em;
 	font-size: 4em;
 	text-align: center;
 	padding: 0px 10px 0px 10px;
@@ -18,15 +18,16 @@ input, button {
 }
 .name, .nameLogo {
 	font-size: 1em;
-	height: 0.25em;
+	height: 1em;
 	text-align: center;
 	padding-top: 0px;
 	border: 1px solid black;
 	border-top: 0;
+	vertical-align: bottom;
 }
 .number, .numberLogo {
 	font-size: 1em;
-	height: 0.25em;
+	height: 0.5em;
 	text-align: right;
 	padding-right: 0.2em;
 	padding-bottom: 0;

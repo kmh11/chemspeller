@@ -93,7 +93,7 @@ function makeTable(spelling, line) {
 }
 
 function color() {
-	document.getElementById("head").innerHTML += "<style>.tableColor {background-color: "+colors[Math.floor(Math.random()*colors.length)]+";}</style>";
+	document.getElementById("color").innerHTML = "<style>.tableColor {background-color: "+colors[Math.floor(Math.random()*colors.length)]+";}</style>";
 }
 
 function elementSpell() {
