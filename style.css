@@ -1,5 +1,5 @@
 table {
-	border: 1px solid black; 
+	border: 0.0625vw solid black; 
 	border-spacing: 0;
 	margin: 0 auto;
 }
@@ -12,13 +12,13 @@ input, button {
 	font-size: 4em;
 	text-align: center;
 	padding: 0px 10px 0px 10px;
-	border: 1px solid black;
+	border: 0.0625vw solid black; 
 	border-bottom: 0;
 	border-top: 0;
 }
 .symbolLogo {
 	width: 2em;
-	height: 1.9em;
+	height: 2.2em;
 	font-size: 4.25em;
 }
 .name, .nameLogo {
@@ -26,7 +26,7 @@ input, button {
 	height: 1em;
 	text-align: center;
 	padding-top: 1px;
-	border: 1px solid black;
+	border: 0.0625vw solid black; 
 	border-top: 0;
 	vertical-align: bottom;
 }
@@ -36,8 +36,11 @@ input, button {
 	text-align: right;
 	padding-right: 0.2em;
 	padding-bottom: 0;
-	border: 1px solid black;
+	border: 0.0625vw solid black; 
 	border-bottom: 0;
+}
+.numberLogo {
+	padding-right: 0.4em;
 }
 .number {
 	height: 1.25em;
@@ -59,7 +62,6 @@ sup {
 body {
 	font-size:100%;
 	font-size: 1.75vw;
-	margin: 0;
 }
 .symbolLogo, .nameLogo, .numberLogo {
 	font-weight: 600;
@@ -82,7 +84,7 @@ body {
 	letter-spacing: 0.1em;
 	display: inline-block;
 	position: relative;
-	bottom: 0.9em;
+	bottom: 1.1em;
 	font-size: 1.5em;
 }
 #logo {
@@ -100,17 +102,24 @@ footer {
 	text-align: center;
 	font-size: 0.5em;
 	vertical-align: bottom;
-	padding-top: 0.5em;
+	padding-top: 1em;
 	font-family: "vera-sans",sans-serif;
 }
 #description {
 	font-weight: 100;
 	font-size: 1em;
+	padding-top: 0.5em;
 }
 #top {
 	font-size: 1.3em;
 }
 @media only screen and (min-width: 410px) {
+	#description {
+		padding-top: 0em;
+	}
+	.numberLogo {
+		padding-right: 0.2em;
+	}
 	.symbol {
 		height: 1.5em;
 	}
