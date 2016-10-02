@@ -108,7 +108,7 @@ function color() {
 	colorNum = Math.floor(Math.random()*colors.length);
 	trick = getQueryVariable("trick");
 	if (Math.floor(Math.random()*100) === 1 || trick === "rick") {
-		document.getElementById("video").innerHTML = "<div style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><div style=\"position: fixed; z-index: -99; width: 100%; height: 100%; margin: -8px;\"><iframe frameborder=\"0\" height=\"100%\" width=\"100%\" src=\"https://youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&showinfo=0&autohide=1\"></iframe></div>";
+		document.getElementById("video").innerHTML = "<div style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><div style=\"position: fixed; z-index: -99; width: 100%; height: 100%; margin: -8px;\"><iframe frameborder=\"0\" height=\"100%\" width=\"100%\" src=\"https://youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&showinfo=0&autohide=1&loop=1\"></iframe></div>";
 		document.getElementById("color").innerHTML = "<style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;}</style>";
 	} else if (Math.floor(Math.random()*50) === 1 || getQueryVariable("trick") === "rainbow") {
 		document.getElementById("video").innerHTML = "";
