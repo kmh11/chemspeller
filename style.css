@@ -1,3 +1,8 @@
+#rainbow {
+	background-image: url("images/rainbow-tunnel.gif");
+	background-size: 200vw;
+	background-position: center -5vw;
+}
 table {
 	border: 0.0625vw solid black; 
 	border-spacing: 0;
@@ -112,6 +117,12 @@ footer {
 }
 #top {
 	font-size: 1.3em;
+}
+@media only screen and (orientation: landscape) {
+	#rainbow {
+		background-image: url("images/rainbow-tunnel.gif");
+		background-size: 100%;
+	}
 }
 @media only screen and (min-width: 410px) {
 	#description {

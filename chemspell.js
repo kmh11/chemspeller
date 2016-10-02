@@ -24,6 +24,12 @@ function getQueryVariable(variable) {
        return(false);
 }
 
+function checkKey() {
+	if (event.keyCode === 13) {
+		document.getElementById("button").click();
+	}
+}
+
 function _elementSpell(word, spelling) {
 	if (word === "") {
 		return spelling;
@@ -112,7 +118,7 @@ function color() {
 		document.getElementById("color").innerHTML = "<style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;}</style>";
 	} else if (Math.floor(Math.random()*50) === 1 || getQueryVariable("trick") === "rainbow") {
 		document.getElementById("video").innerHTML = "";
-		document.getElementById("color").innerHTML = "<style>body {background-image: url(\"images/rainbow-tunnel.gif\"); background-size: 100%;} .symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
+		document.getElementById("color").innerHTML = "<div id=\"rainbow\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
 	} else {
 		document.getElementById("video").innerHTML = "";
 		document.getElementById("color").innerHTML = "<style>.tableColor {background-color: "+colors[colorNum]+";} body {background-color: "+bgcolors[colorNum]+"} </style>";
