@@ -117,10 +117,10 @@ function makeTable(spelling, line) {
 	document.getElementById(line).innerHTML = table
 }
 
-function color() {
+function color(onLoad = false) {
 	colorNum = Math.floor(Math.random()*colors.length);
 	trick = getQueryVariable("trick");
-	if (Math.floor(Math.random()*100) === 1 || trick === "rick") {
+	if ((Math.floor(Math.random()*100) === 1  && !onLoad)|| trick === "rick") {
 		youtube();
 		document.getElementById("color").innerHTML = "<style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;}</style>";
 	} else if (Math.floor(Math.random()*50) === 1 || getQueryVariable("trick") === "rainbow") {
