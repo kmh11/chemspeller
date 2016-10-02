@@ -120,7 +120,7 @@ function makeTable(spelling, line) {
 function color() {
 	colorNum = Math.floor(Math.random()*colors.length);
 	trick = getQueryVariable("trick");
-	if (Math.floor(Math.random()*100) || trick === "rick") {
+	if (Math.floor(Math.random()*100) === 1 || trick === "rick") {
 		youtube();
 		document.getElementById("color").innerHTML = "<style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;}</style>";
 	} else if (Math.floor(Math.random()*50) === 1 || getQueryVariable("trick") === "rainbow") {
@@ -132,6 +132,7 @@ function color() {
 
 function elementSpell() {
 	color();
+	player.playVideo();
 	document.getElementById("tables").innerHTML = ""
 	word = document.getElementById("wordInput").value.toLowerCase();
 
@@ -159,7 +160,7 @@ function onYouTubeIframeAPIReady() {
 		height: "100%",
 		width: "100%",
 		videoId: "dQw4w9WgXcQ",
-		playerVars:{"controls":0, "showinfo":0, "autohide":1, "loop":1, "playlist":"dQw4w9WgXcQ"},
+		playerVars:{"autoplay":1, "controls":0, "showinfo":0, "autohide":1, "loop":1, "playlist":"dQw4w9WgXcQ"},
 		events: {
 			'onReady': onPlayerReady
 		}
@@ -167,6 +168,5 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady() {
-	player.playVideo();
 }
 
