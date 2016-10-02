@@ -109,12 +109,12 @@ function color() {
 	trick = getQueryVariable("trick");
 	if (Math.floor(Math.random()*100) === 1 || trick === "rick") {
 		document.getElementById("video").innerHTML = "<div style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><div style=\"position: fixed; z-index: -99; width: 100%; height: 100%; margin: -8px;\"><iframe frameborder=\"0\" height=\"100%\" width=\"100%\" src=\"https://youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&showinfo=0&autohide=1\"></iframe></div>";
-		document.getElementById("color").innerHTML = "<style>.symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat;}</style>";
+		document.getElementById("color").innerHTML = "<style>.table {color: white;} .symbol, .name, .number {border: 0.0625vw solid white;} .symbol {border-bottom: 0; border-top: 0;} .name {border-top: 0} .number {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat;}</style>";
 	} else if (Math.floor(Math.random()*50) === 1 || getQueryVariable("trick") === "rainbow") {
-		document.getElementById("video").innerHTML = ""
+		document.getElementById("video").innerHTML = "";
 		document.getElementById("color").innerHTML = "<style>body {background-image: url(\"images/rainbow-tunnel.gif\"); background-size: 100%;} .symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
 	} else {
-		document.getElementById("video").innerHTML = ""
+		document.getElementById("video").innerHTML = "";
 		document.getElementById("color").innerHTML = "<style>.tableColor {background-color: "+colors[colorNum]+";} body {background-color: "+bgcolors[colorNum]+"} </style>";
 	}
 }
