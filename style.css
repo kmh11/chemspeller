@@ -118,6 +118,10 @@ footer {
 #top {
 	font-size: 1.3em;
 }
+#video {
+	position: relative;
+	right: 22.222%;
+}
 @media only screen and (orientation: landscape) {
 	#rainbow {
 		background-image: url("images/rainbow-tunnel.gif");

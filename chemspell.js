@@ -157,7 +157,7 @@ function youtube() {
 	player = new YT.Player('video', {
 		frameborder: "0",
 		height: "100%",
-		width: "100%",
+		width: "144.444%",
 		videoId: "dQw4w9WgXcQ",
 		playerVars:{"autoplay":1, "controls":0, "showinfo":0, "autohide":1, "loop":1, "playlist":"dQw4w9WgXcQ"},
 		events: {
