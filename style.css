@@ -3,6 +3,11 @@
 	background-size: 200vw;
 	background-position: center -5vw;
 }
+#trump {
+	background-image: url("images/trump.gif");
+	background-size: 200vw;
+	background-position: center -5vw;
+}
 table {
 	border: 0.0625vw solid black; 
 	border-spacing: 0;
@@ -125,6 +130,10 @@ footer {
 @media only screen and (orientation: landscape) {
 	#rainbow {
 		background-image: url("images/rainbow-tunnel.gif");
+		background-size: 100%;
+	}
+	#trump {
+		background-image: url("images/trump.gif");
 		background-size: 100%;
 	}
 }
