@@ -6,6 +6,7 @@
 #trump {
 	background-image: url("images/trump.gif");
 	background-size: cover;
+	background-position: center;
 }
 table {
 	border: 0.0625vw solid black; 
