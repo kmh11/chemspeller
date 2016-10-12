@@ -118,7 +118,7 @@ function color(onLoad = false) {
 	colorNum = Math.floor(Math.random()*colors.length);
 	trick = getQueryVariable("trick");
 	if ((Math.floor(Math.random()*100) === 1 && !onLoad)|| trick === "rick") {
-		youtube("dQw4w9WgXcQ");
+		youtube();
 		document.getElementById("color").innerHTML = "<style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;}</style>";
 	} else if (Math.floor(Math.random()*50) === 1 || getQueryVariable("trick") === "rainbow") {
 		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
@@ -126,31 +126,6 @@ function color(onLoad = false) {
 	} else {
 		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
 		document.getElementById("color").innerHTML = "<style>.tableColor {background-color: "+colors[colorNum]+";} body {background-color: "+bgcolors[colorNum]+"} </style>";
-	}
-}
-
-function bestSpelling(spellings) {
-	var nonElements = []
-	var allElements = []
-	for (var s = 0; s < spellings.length; s++) {
-		flag = false;
-		for (var e = 0; e < spellings[s].length; e++) {
-			if (spellings[s][e] > 117) {
-				nonElements.push(spellings[s])
-				flag = true;
-				break
-			}
-		}
-		if (!flag) {
-			allElements.push(spellings[s])
-		}
-	}
-	allElements = allElements.sort(compareLength)
-	nonElements = nonElements.sort(compareLength)
-	if (allElements.length > 0) {
-		return allElements[0]
-	} else {
-		return nonElements[0]
 	}
 }
 
@@ -163,18 +138,15 @@ function elementSpell() {
 	if (words[0] != "") {
 		for (c=0; c < words.length; c++) {
 			document.getElementById("tables").innerHTML += "<div id="+c.toString()+" class=\"table\"></div>"
-			animateTable(bestSpelling(getSpellings(words[c], _elementSpell(words[c], []))), c);
+			animateTable(_elementSpell(words[c], []), c);
 		}
 	}
 }
 
 function printElements(spelling) {
 	for (var s =0 ; s < spelling.length; s++) {
+		console.log(symbols[spelling[s])
 	}
-}
-
-var compareLength = function(a, b) {
-	return a.length - b.length;
 }
 
 function getSpellings(word, spelling) {
@@ -189,7 +161,7 @@ function getSpellings(word, spelling) {
 		} else if (depth > spelling[s-1][1]) {
 			spellings[spellings.length-1].push(element)
 		} else if (depth < spelling[s-1][1]) {
-			spellings.push((spellings[spellings.length-1].slice(0,spellings[spellings.length-1].length-1-(spelling[s-1][1]-depth))).concat([element]))
+			spellings.push((spellings[spellings.length-1].slice(0,spellings[spellings.length-1].length-1-(spelling[s-1][0]))).concat([element]))
 		}
 	}
 	return spellings
