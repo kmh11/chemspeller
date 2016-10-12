@@ -55,7 +55,7 @@ function containsList(list, sublist) {
 
 function animateTable(spelling, line) {
 	if (!spelling) {
-		document.getElementById("tables").innerHTML = "<h1>Impossible!</h1><p>Remeber to avoid special symbols (/.,?!) and to spell out numbers.</p>";
+		document.getElementById("tables").innerHTML = "<h1 class=\"error\">Impossible!</h1><p class=\"error\">Remember to avoid special symbols (/.,?!) and to spell out numbers.</p>";
 	} else {
 		var delay = 50;
 		var delayJ = spelling.length*50;
@@ -119,7 +119,14 @@ function color(onLoad = false) {
 	trick = getQueryVariable("trick");
 	if ((Math.floor(Math.random()*100) === 1 && !onLoad)|| trick === "rick") {
 		youtube("dQw4w9WgXcQ");
-		document.getElementById("color").innerHTML = "<style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;}</style>";
+		document.getElementById("color").innerHTML = "<style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;} .error {color: white;}</style>";
+	} else if ((Math.floor(Math.random()*100) === 1 && !onLoad)|| trick === "trump") {
+		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
+		document.getElementById("color").innerHTML = "<div id=\"trump\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;} .error {color: white;}</style>";
+  	} else if (Math.floor(Math.random()*50) === 1 || getQueryVariable("trick") === "rainbow") {
+  		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
+  		document.getElementById("color").innerHTML = "<div id=\"rainbow\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
+
 	} else if (Math.floor(Math.random()*50) === 1 || getQueryVariable("trick") === "rainbow") {
 		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
 		document.getElementById("color").innerHTML = "<div id=\"rainbow\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
@@ -207,9 +214,9 @@ function youtube(id) {
 	player = new YT.Player('video', {
 		frameborder: "0",
 		height: "100%",
-		width: "100%",
+		width: "144.444%",
 		videoId: id,
-		playerVars:{"controls":0, "showinfo":0, "autohide":1, "loop":1, "playlist":id},
+		playerVars:{"controls":0, "showinfo":0, "autohide":1, "loop":1, "playlist":id, "autoplay":1},
 		events: {
 			'onReady': onPlayerReady
 		}
