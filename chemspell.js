@@ -166,6 +166,9 @@ function elementSpell() {
 	color();
 	document.getElementById("tables").innerHTML = ""
 	word = document.getElementById("wordInput").value.toLowerCase();
+	if (/[^A-Za-z ]/g.test(word)) {
+		word = ";"
+	}
 	words = word.split(" ");
 	if (words[0] != "") {
 		for (c=0; c < words.length; c++) {
