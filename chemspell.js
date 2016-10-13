@@ -58,11 +58,11 @@ function animateTable(spelling, line) {
 		document.getElementById("tables").innerHTML = "<h1 class=\"error\">Impossible!</h1><p class=\"error\">Remember to avoid special symbols (/.,?!) and to spell out numbers.</p>";
 	} else {
 		var delay = 50;
-		var delayJ = spelling.length*50;
+		var delayJ = 315;
 		var j=0;
 		var maxJ = spelling.length;
 		var k=0;
-		var maxK = spelling.length*spelling.length*spelling.length-spelling.length/5;
+		var maxK = 64+(51*(spelling.length-4));
 		function outerTimeoutLoop() {
 			if (++j < maxJ) {
 				setTimeout(outerTimeoutLoop, delayJ)
