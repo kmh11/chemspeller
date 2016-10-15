@@ -26,7 +26,7 @@ function getQueryVariable(variable) {
        return false;
 }
 
-function checkKey() {
+function checkKey(event) {
 	if (event.keyCode === 13) {
 		document.getElementById("button").click();
 	}
