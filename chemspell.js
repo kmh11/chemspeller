@@ -119,10 +119,10 @@ function color(onLoad = false) {
 	trick = getQueryVariable("trick");
 	if ((Math.floor(Math.random()*100) === 1 && !onLoad)|| trick === "rick") {
 		youtube("dQw4w9WgXcQ");
-		document.getElementById("color").innerHTML = "<style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;} .error {color: white;}</style>";
+		document.getElementById("color").innerHTML = "<style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;} .error, #inputDescription, #links a {color: white;} #links a {border-color: white;}</style>";
 	} else if ((Math.floor(Math.random()*100) === 1 && !onLoad)|| trick === "trump") {
 		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
-		document.getElementById("color").innerHTML = "<div id=\"trump\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;} .error {color: white;}</style>";
+		document.getElementById("color").innerHTML = "<div id=\"trump\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;} .error, #inputDescription, #links a {color: white;} #links a {border-color: white;}</style>";
   	} else if (Math.floor(Math.random()*50) === 1 || getQueryVariable("trick") === "rainbow") {
   		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
   		document.getElementById("color").innerHTML = "<div id=\"rainbow\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
@@ -132,7 +132,7 @@ function color(onLoad = false) {
 		document.getElementById("color").innerHTML = "<div id=\"rainbow\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
 	} else {
 		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
-		document.getElementById("color").innerHTML = "<style>.tableColor {background-color: "+colors[colorNum]+";} body {background-color: "+bgcolors[colorNum]+"} </style>";
+		document.getElementById("color").innerHTML = "<style>.tableColor, #links a {background-color: "+colors[colorNum]+";} body {background-color: "+bgcolors[colorNum]+"} </style>";
 	}
 }
 
@@ -161,11 +161,43 @@ function bestSpelling(spellings) {
 	}
 }
 
+function allSpellings() {
+	spellings = []
+	var spells = []
+	color();
+	document.getElementById("tables").innerHTML = ""
+	word = document.getElementById("wordInput").value.toLowerCase();
+	if (word === "") {
+		word = getQueryVariable("word").replace("%20", " ");
+		document.getElementById("wordInput").setAttribute("value", word);
+	}
+	document.getElementById("spellings").setAttribute("href", "index.html?word="+word);
+	if (/[^A-Za-z ]/g.test(word)) {
+		word = ";"
+	}
+	words = word.split(" ");
+	spells = getSpellings(words[0], _elementSpell(words[0].toLowerCase(), [])).sort(compareLength)
+	for (w = 1; w < words.length; w++) {
+		var spells = spells.concat(getSpellings(words[w].toLowerCase(), _elementSpell(words[w].toLowerCase(), [])).sort(compareLength))
+	}
+	if (words[0] != "") {
+		for (c=0; c < spells.length; c++) {
+			document.getElementById("tables").innerHTML += "<div id="+c.toString()+" class=\"table\"></div>"
+			makeTable(spells[c], c);
+		}
+	}
+}
+
 function elementSpell() {
 	spellings = []
 	color();
 	document.getElementById("tables").innerHTML = ""
-	word = document.getElementById("wordInput").value.toLowerCase();
+	word = document.getElementById("wordInput").value
+	if (word === "") {
+		word = getQueryVariable("word").replace("%20", " ");
+		document.getElementById("wordInput").setAttribute("value", word);
+	}
+	document.getElementById("spellings").setAttribute("href", "spellings.html?word="+word);
 	if (/[^A-Za-z ]/g.test(word)) {
 		word = ";"
 	}
@@ -173,7 +205,7 @@ function elementSpell() {
 	if (words[0] != "") {
 		for (c=0; c < words.length; c++) {
 			document.getElementById("tables").innerHTML += "<div id="+c.toString()+" class=\"table\"></div>"
-			animateTable(bestSpelling(getSpellings(words[c], _elementSpell(words[c], []))), c);
+			animateTable(bestSpelling(getSpellings(words[c].toLowerCase(), _elementSpell(words[c].toLowerCase(), []))), c);
 		}
 	}
 }
