@@ -27,7 +27,7 @@ function getQueryVariable(variable) {
 }
 
 function link(page) {
-	window.location.href = page+function(){params=window.location.href.split("?")[1]; if (params != undefined){return "?"+window.location.href.split("?")[1]} return ""}()
+	window.location.href = page+function(){params=window.location.href.split("?")[1]; if (params != undefined){return "?"+params} return ""}()
 	return false;
 }
 
@@ -185,19 +185,20 @@ function allSpellings() {
 	color();
 	document.getElementById("tables").innerHTML = ""
 	word = document.getElementById("wordInput").value;
-	if (word === "") {
-		word = getQueryVariable("word").replace(/%20/g, " ");
+	params=window.location.href.split("?")[1];
+	if (params === undefined) {
+		params = ""
+	}
+	if (word === "" && params.slice(0,endIndex(params)) != "") {
+		word = params.slice(0,endIndex(params)).replace(/%20/g, " ");
 		document.getElementById("wordInput").setAttribute("value", word);
 	}
-	history.replaceState('', document.title, "spellings.html"+function(){params=window.location.href.split("?")[1]; if (params != undefined){return "?"+"word="+word+params.slice(function(){
+	history.replaceState('', document.title, "spellings.html"+function(){if (params != undefined){return "?"+word+params.slice(function(){
 		if(params.indexOf("&") != -1) {
 			return params.indexOf("&")
 		} return params.length;
 	}(),params.length)} return ""}().replace(/ /g, "%20"));
-	document.getElementById("spellings").setAttribute("href", "index.html"+function(){params=window.location.href.split("?")[1]; if (params != undefined){return "?"+window.location.href.split("?")[1]} return ""}().replace(/ /g, "%20"));
-	if (/[^A-Za-z ]/g.test(word)) {
-		word = ";"
-	}
+	document.getElementById("spellings").setAttribute("href", "index.html"+function(){params=window.location.href.split("?")[1]; if (params != undefined){return "?"+params} return ""}().replace(/ /g, "%20"));
 	words = word.split(" ");
 	spells = getSpellings(words[0], _elementSpell(words[0].toLowerCase(), [])).sort(compareLength)
 	for (w = 1; w < words.length; w++) {
@@ -211,21 +212,32 @@ function allSpellings() {
 	}
 }
 
+function endIndex(params) {
+	if (params.indexOf("&") === -1) {
+		return params.length
+	}
+	return params.indexOf("&")
+}
+
 function elementSpell() {
 	spellings = []
 	color();
 	document.getElementById("tables").innerHTML = ""
 	word = document.getElementById("wordInput").value
-	if (word === "") {
-		word = getQueryVariable("word").replace(/%20/g, " ");
+	params = window.location.href.split("?")[1];
+	if (params === undefined) {
+		params = ""
+	}
+	if (word === "" && params.slice(0,endIndex(params)) != "") {
+		word = params.slice(0,endIndex(params)).replace(/%20/g, " ");
 		document.getElementById("wordInput").setAttribute("value", word);
 	}
-	history.replaceState('', document.title, "index.html"+function(){params=window.location.href.split("?")[1]; if (params != undefined){return "?"+"word="+word+params.slice(function(){
+	history.replaceState('', document.title, "index.html"+function(){if (params != undefined){return "?"+word+params.slice(function(){
 		if(params.indexOf("&") != -1) {
 			return params.indexOf("&")
 		} return params.length;
 	}(),params.length)} return ""}().replace(/ /g, "%20"));
-	document.getElementById("spellings").setAttribute("href", "spellings.html"+function(){params=window.location.href.split("?")[1]; if (params != undefined){return "?"+window.location.href.split("?")[1]} return ""}().replace(/ /g, "%20"));
+	document.getElementById("spellings").setAttribute("href", "spellings.html"+function(){params=window.location.href.split("?")[1]; if (params != undefined){return "?"+params} return ""}().replace(/ /g, "%20"));
 	if (/[^A-Za-z ]/g.test(word)) {
 		word = ";"
 	}
