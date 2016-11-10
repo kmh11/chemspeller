@@ -242,16 +242,11 @@ function bestSpelling(spellings) {
   if (getUrlVars()["length"] !== undefined) {
     var last = true;
   }
+  if (last) {
+    return nonElements[nonElements.length-1]
+  }
 	if (allElements.length > 0) {
-    if (last) {
-      return allElements[allElements.length-1]
-    }
 		return allElements[0]
-	} else {
-    if (last) {
-      return nonElements[nonElements.length-1]
-    }
-		return nonElements[0]
 	}
 }
 
@@ -266,6 +261,9 @@ function allSpellings() {
 		word = params.word;
 		document.getElementById("wordInput").setAttribute("value", word);
 	}
+  if (word !== "") {
+    params.word = word;
+  }
 	history.replaceState('', document.title, "spellings.html"+makeUrlVars(params))
 	document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(params));
   document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
@@ -292,6 +290,9 @@ function elementSpell() {
 		word = params.word;
 		document.getElementById("wordInput").setAttribute("value", word);
 	}
+  if (word !== "") {
+    params.word = word;
+  }
 	history.replaceState('', document.title, "index.html"+makeUrlVars(params))
 	document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(params))
   document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
