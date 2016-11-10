@@ -247,6 +247,8 @@ function bestSpelling(spellings) {
   }
 	if (allElements.length > 0) {
 		return allElements[0]
+	} else {
+		return nonElements[0]
 	}
 }
 
