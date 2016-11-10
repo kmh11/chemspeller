@@ -61,7 +61,7 @@ function options() {
   }
   if (urlVars["length"] != undefined) {
     document.getElementById("long").checked = true;
-  } else {document.getElementById("short".checked = true)}
+  } else {document.getElementById("short").checked = true}
 	color()
 }
 
