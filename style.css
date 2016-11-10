@@ -23,6 +23,7 @@
 	padding: 0.1em 0.3em 0.1em 0.3em;
 	margin-left: 0.1em;
 	margin-right: 0.1em;
+	font-family: "vera-sans", sans-serif;
 }
 input[type=radio] {
 	height: 0.6em;
