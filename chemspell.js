@@ -59,6 +59,9 @@ function options() {
   if (urlVars.bgcolor != undefined) {
     document.getElementById("bgcolorChoice").value = urlVars.bgcolor
   }
+  if (urlVars.trick != undefined) {
+    document.getElementById("trickChoice").value = urlVars.trick
+  }
   if (urlVars["length"] != undefined) {
     document.getElementById("long").checked = true;
   } else {document.getElementById("short").checked = true}
@@ -87,6 +90,7 @@ function apply() {
 	var bgcolor = document.getElementById("bgcolorChoice");
   var word = document.getElementById("defaultWord").value;
   var length = document.querySelector("input[name='length']:checked").value;
+  var trick = document.getElementById("trickChoice").value;
   var urlVars = getUrlVars()
   if (color.value != "default") {
     urlVars.color = color.value
@@ -100,6 +104,9 @@ function apply() {
   if (length === "long") {
     urlVars["length"] = "long"
   } else {delete urlVars["length"]}
+  if (trick !== "default") {
+    urlVars.trick = trick
+  } else {delete urlVars.trick}
   window.location.href = window.location.href.split("?")[0]+makeUrlVars(urlVars)
 }
 
