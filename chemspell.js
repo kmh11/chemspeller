@@ -15,19 +15,58 @@ var line;
 var ready=false;
 var word;
 
-//From https://css-tricks.com/snippets/javascript/get-url-variables/
-function getQueryVariable(variable) {
-       var query = window.location.search.substring(1);
-       var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){return pair[1];}
-       }
-       return false;
+
+function makeUrlVars(varDict) {
+  varString = "?"
+  if (varDict.word !== undefined) {
+      varString += varDict["word"].replace(/ /g, "%20")
+  }
+  for (var key in varDict) {
+    if (key != "word") {
+      varString += "&"+key+"="+varDict[key].replace(/ /g, "%20")
+    }
+  }
+  return varString
+}
+
+function getUrlVars() {
+  var urlVars = window.location.search.substring(1);
+  var vars = urlVars.split("&");
+  var varDict = {word:vars[0].replace(/%20/g, " ")};
+  for (var index = 1; index < vars.length; index++) {
+    var pair = vars[index].split("=");
+    varDict[pair[0]] = pair[1].replace(/%20/g, " ");
+  }
+  return varDict;
+}
+
+function options() {
+	if (window.location.href.indexOf("?") === -1) {
+		window.location.href = window.location.href+"?"
+	}
+  var urlVars = getUrlVars();
+  document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(urlVars));
+  document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(urlVars));
+  if (urlVars.word != undefined) {
+    document.getElementById("defaultWord").value = urlVars.word
+  }
+  if (urlVars.color != undefined) {
+    document.getElementById("colorChoice").value = urlVars.color
+  }
+  if (urlVars.bgcolor != undefined) {
+    document.getElementById("bgcolorChoice").value = urlVars.bgcolor
+  }
+  if (urlVars.bgcolor != undefined) {
+    document.getElementById("bgcolorChoice").value = urlVars.bgcolor
+  }
+  if (urlVars["length"] != undefined) {
+    document.getElementById("long").checked = true;
+  } else {document.getElementById("short".checked = true)}
+	color()
 }
 
 function link(page) {
-	window.location.href = page+function(){params=window.location.href.split("?")[1]; if (params != undefined){return "?"+params} return ""}()
+	window.location.href = page+window.location.search
 	return false;
 }
 
@@ -41,6 +80,27 @@ function checkKey(event) {
 	if (event.keyCode === 13) {
 		document.getElementById("button").click();
 	}
+}
+
+function apply() {
+	var color = document.getElementById("colorChoice");
+	var bgcolor = document.getElementById("bgcolorChoice");
+  var word = document.getElementById("defaultWord").value;
+  var length = document.querySelector("input[name='length']:checked").value;
+  var urlVars = getUrlVars()
+  if (color.value != "default") {
+    urlVars.color = color.value
+  } else {delete urlVars.color}
+  if (bgcolor.value != "default") {
+    urlVars.bgcolor = bgcolor.value
+  } else {delete urlVars.bgcolor}
+  if (word != "") {
+    urlVars.word = word
+  } else {delete urlVars.word}
+  if (length === "long") {
+    urlVars["length"] = "long"
+  } else {delete urlVars["length"]}
+  window.location.href = window.location.href.split("?")[0]+makeUrlVars(urlVars)
 }
 
 function _elementSpell(word, spelling, depth = 0) {
@@ -125,32 +185,39 @@ function makeTable(spelling, line) {
 	document.getElementById(line).innerHTML = table
 }
 
-function color(onLoad = false) {
-	colorNum = Math.floor(Math.random()*colors.length);
-	trick = getQueryVariable("trick");
-	bgcolor = "#"+getQueryVariable("bgcolor")
-	getColor = "#"+getQueryVariable("color")
-	if ((Math.floor(Math.random()*100) === 1 && !onLoad)|| trick === "rick") {
+function color() {
+  var urlVars = getUrlVars()
+	var colorNum = Math.floor(Math.random()*colors.length);
+	var trick = urlVars.trick;
+	var bgcolor = urlVars.bgcolor;
+	var getColor = urlVars.color;
+  var bghex = "#"+urlVars.bghex;
+	var getHex = "#"+urlVars.hex;
+	if ((Math.floor(Math.random()*100) === 1)|| trick === "rick") {
 		youtube("dQw4w9WgXcQ");
 		document.getElementById("color").innerHTML = "<style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;} .error, #inputDescription, #links a {color: white;} #links a {border-color: white;}</style>";
-	} else if ((Math.floor(Math.random()*100) === 1 && !onLoad)|| trick === "trump") {
+	} else if ((Math.floor(Math.random()*100) === 1)|| trick === "trump") {
 		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
 		document.getElementById("color").innerHTML = "<div id=\"trump\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;} .error, #inputDescription, #links a {color: white;} #links a {border-color: white;}</style>";
-  	} else if (Math.floor(Math.random()*50) === 1 || getQueryVariable("trick") === "rainbow") {
+  } else if (Math.floor(Math.random()*50) === 1 || trick === "rainbow") {
   		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
   		document.getElementById("color").innerHTML = "<div id=\"rainbow\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
-	} else if (Math.floor(Math.random()*50) === 1 || getQueryVariable("trick") === "rainbow") {
+	} else if (Math.floor(Math.random()*50) === 1 || trick === "rainbow") {
 		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
 		document.getElementById("color").innerHTML = "<div id=\"rainbow\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
 	} else {
 		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
-		if (getColor != "#false") {
+		if (getColor !== undefined) {
 			usedColor = getColor;
-		} else { usedColor = colors[colorNum]; }
-		if (bgcolor != "#false") {
+		} else if (getHex !== "#undefined") {
+      usedColor = getHex;
+    } else { usedColor = colors[colorNum]; }
+		if (bgcolor !== undefined) {
 			usedbgColor = bgcolor;
-		} else { usedbgColor = bgcolors[colorNum]; }
-		document.getElementById("color").innerHTML = "<style>.tableColor, #links a {background-color: "+usedColor+";} body {background-color: "+usedbgColor+";} </style>";
+		} else if (bghex !== "#undefined") {
+      usedbgColor = bghex;
+    } else { usedbgColor = bgcolors[colorNum]; }
+		document.getElementById("color").innerHTML = "<style>.tableColor, #links a, #options {background-color: "+usedColor+";} body {background-color: "+usedbgColor+";} </style>";
 	}
 }
 
@@ -172,9 +239,18 @@ function bestSpelling(spellings) {
 	}
 	allElements = allElements.sort(compareLength)
 	nonElements = nonElements.sort(compareLength)
+  if (getUrlVars()["length"] !== undefined) {
+    var last = true;
+  }
 	if (allElements.length > 0) {
+    if (last) {
+      return allElements[allElements.length-1]
+    }
 		return allElements[0]
 	} else {
+    if (last) {
+      return nonElements[nonElements.length-1]
+    }
 		return nonElements[0]
 	}
 }
@@ -185,20 +261,14 @@ function allSpellings() {
 	color();
 	document.getElementById("tables").innerHTML = ""
 	word = document.getElementById("wordInput").value;
-	params=window.location.href.split("?")[1];
-	if (params === undefined) {
-		params = ""
-	}
-	if (word === "" && params.slice(0,endIndex(params)) != "") {
-		word = params.slice(0,endIndex(params)).replace(/%20/g, " ");
+	params=getUrlVars()
+	if (word === "" && params.word != undefined) {
+		word = params.word;
 		document.getElementById("wordInput").setAttribute("value", word);
 	}
-	history.replaceState('', document.title, "spellings.html"+function(){if (params != undefined){return "?"+word+params.slice(function(){
-		if(params.indexOf("&") != -1) {
-			return params.indexOf("&")
-		} return params.length;
-	}(),params.length)} return ""}().replace(/ /g, "%20"));
-	document.getElementById("spellings").setAttribute("href", "index.html"+function(){params=window.location.href.split("?")[1]; if (params != undefined){return "?"+params} return ""}().replace(/ /g, "%20"));
+	history.replaceState('', document.title, "spellings.html"+makeUrlVars(params))
+	document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(params));
+  document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
 	words = word.split(" ");
 	spells = getSpellings(words[0], _elementSpell(words[0].toLowerCase(), [])).sort(compareLength)
 	for (w = 1; w < words.length; w++) {
@@ -212,32 +282,19 @@ function allSpellings() {
 	}
 }
 
-function endIndex(params) {
-	if (params.indexOf("&") === -1) {
-		return params.length
-	}
-	return params.indexOf("&")
-}
-
 function elementSpell() {
 	spellings = []
 	color();
 	document.getElementById("tables").innerHTML = ""
 	word = document.getElementById("wordInput").value
-	params = window.location.href.split("?")[1];
-	if (params === undefined) {
-		params = ""
-	}
-	if (word === "" && params.slice(0,endIndex(params)) != "") {
-		word = params.slice(0,endIndex(params)).replace(/%20/g, " ");
+	params = getUrlVars()
+  if (word === "" && params.word != undefined) {
+		word = params.word;
 		document.getElementById("wordInput").setAttribute("value", word);
 	}
-	history.replaceState('', document.title, "index.html"+function(){if (params != undefined){return "?"+word+params.slice(function(){
-		if(params.indexOf("&") != -1) {
-			return params.indexOf("&")
-		} return params.length;
-	}(),params.length)} return ""}().replace(/ /g, "%20"));
-	document.getElementById("spellings").setAttribute("href", "spellings.html"+function(){params=window.location.href.split("?")[1]; if (params != undefined){return "?"+params} return ""}().replace(/ /g, "%20"));
+	history.replaceState('', document.title, "index.html"+makeUrlVars(params))
+	document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(params))
+  document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
 	if (/[^A-Za-z ]/g.test(word)) {
 		word = ";"
 	}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Set your preferences - ChemSpeller</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content = "Configure the look and behaivor of ChemSpeller!">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script type="text/javascript" src="chemspell.js"></script>
+		<script src="https://use.typekit.net/pns3kwl.js"></script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		  ga('create', 'UA-84680674-1', 'auto');
+		  ga('send', 'pageview');
+		</script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script>
+	</head>
+	<body onLoad="options()">
+		<div id="wrapper">
+			<div id="vid"><div style="position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;"></div><div style="position: fixed; z-index: -99; width: 100%; height: 100%; margin: -8px;" id="vidDiv"><div id="video"></div></div></div>
+			<div id="color"></div>
+			<div id="top">
+				<div id="logo"><div id="logoTable"><table><tbody><tr><td class="numberLogo tableColor">6</td><td class="numberLogo tableColor">1</td><td class="numberLogo tableColor">-1</td><td class="numberLogo tableColor"></td></tr><tr><td class="symbolLogo tableColor">C</td><td class="symbolLogo tableColor">H</td><td class="symbolLogo tableColor">e<sup>-</sup></td><td class="symbolLogo tableColor">m</td></tr><tr><td class="nameLogo tableColor">Carbon</td><td class="nameLogo tableColor">Hydrogen</td><td class="nameLogo tableColor">Electron</td><td class="nameLogo tableColor">Mass</td></tr></tbody></table></div><div id="logoText"><p>Speller</p></div><sup id="TM">TM</sup></div>
+				<h1 id="description">Customize your experience!</h1>
+			</div>
+			<div id="options">
+				<p>I want the spelling the program creates to...</p>
+				<input type="radio" name="length" value="short" id="short"></input><label for="short">Be as short as possible (default)</label></br>
+				<input type="radio" name="length" id="long" value="long"></input><label for="long">Be as long as possible</label><br>
+				<label for="defaultWord" id="defaultWordLabel">Default words: </label><input id="defaultWord" type="text"></input><br>
+				<label>Foreground color:</label>
+				<select id="colorChoice" class="colorSelect">
+					<option value="default">Default</option>
+					<option value="black" style="background-color: black; color: white;">Black</option>
+					<option value="gray" style="background-color: gray; color: white;">Gray</option>
+					<option value="silver" style="background-color: silver; color: white;">Silver</option>
+					<option value="white" style="background-color: white;">White</option>
+					<option value="maroon" style="background-color: maroon; color: white;">Maroon</option>
+					<option value="red" style="background-color: red; color: white;">Red</option>
+					<option value="olive" style="background-color: olive; color: white;">Olive</option>
+					<option value="yellow" style="background-color: yellow;">Yellow</option>
+					<option value="green" style="background-color: green; color: white;">Green</option>
+					<option value="lime" style="background-color: lime; color: white;">Lime</option>
+					<option value="teal" style="background-color: teal; color: white;">Teal</option>
+					<option value="aqua" style="background-color: aqua; color: white;">Aqua</option>
+					<option value="navy" style="background-color: navy; color: white;">Navy</option>
+					<option value="blue" style="background-color: blue; color: white;">Blue</option>
+					<option value="purple" style="background-color: purple; color: white;">Purple</option>
+					<option value="fuchsia" style="background-color: fuchsia; color: white;">Fuchsia</option>
+				</select>
+				<br><label>Background color:</label>
+				<select id="bgcolorChoice" class="colorSelect">
+					<option value="default">Default</option>
+					<option value="black" style="background-color: black; color: white;">Black</option>
+					<option value="gray" style="background-color: gray; color: white;">Gray</option>
+					<option value="silver" style="background-color: silver; color: white;">Silver</option>
+					<option value="white" style="background-color: white;">White</option>
+					<option value="maroon" style="background-color: maroon; color: white;">Maroon</option>
+					<option value="red" style="background-color: red; color: white;">Red</option>
+					<option value="olive" style="background-color: olive; color: white;">Olive</option>
+					<option value="yellow" style="background-color: yellow;">Yellow</option>
+					<option value="green" style="background-color: green; color: white;">Green</option>
+					<option value="lime" style="background-color: lime; color: white;">Lime</option>
+					<option value="teal" style="background-color: teal; color: white;">Teal</option>
+					<option value="aqua" style="background-color: aqua; color: white;">Aqua</option>
+					<option value="navy" style="background-color: navy; color: white;">Navy</option>
+					<option value="blue" style="background-color: blue; color: white;">Blue</option>
+					<option value="purple" style="background-color: purple; color: white;">Purple</option>
+					<option value="fuchsia" style="background-color: fuchsia; color: white;">Fuchsia</option>
+				</select><br>
+				<div id="links"><a id="applyButton" href="javascript:void(0)" onclick="apply()">Apply</a></div>
+			</div>
+		</div>
+		<div id="links"><a id="spelling" href="index.html">One Spelling</a><a id="spellings" href="spellings.html" onclick="link('spellings.html')">All Spellings</a></div>
+		<footer>&copy; 2016 Kevin Higgs </footer>
+	</body>
+</html>
