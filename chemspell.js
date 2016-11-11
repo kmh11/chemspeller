@@ -173,7 +173,7 @@ function makeTable(spelling, line) {
 		} else if (Number(number) >= 119) {
 			number = ""
 		}
-		table = table+"<td class=\"number turnWhite\">"+number+"</td>";
+		table = table+"<td class=\"number turnWhite tableColor\">"+number+"</td>";
 	}
 	table = table+"</tr><tr>"
 	for (i=0; i < spelling.length; i++) {
@@ -182,11 +182,11 @@ function makeTable(spelling, line) {
 		} else {
 			symbol = symbols[spelling[i]]
 		}
-		table = table+"<td class=\"symbol turnWhite\">"+symbol+"</td>";
+		table = table+"<td class=\"symbol turnWhite tableColor\">"+symbol+"</td>";
 	}
 	table = table+"</tr><tr>"
 	for (i=0; i < spelling.length; i++) {
-		table = table+"<td class=\"name turnWhite\">"+names[spelling[i]]+"</td>";
+		table = table+"<td class=\"name turnWhite tableColor\">"+names[spelling[i]]+"</td>";
 	}
 	table = table+"</table>"
 	document.getElementById(line).innerHTML = table
@@ -225,7 +225,7 @@ function color() {
 		} else if (bghex !== "#undefined") {
       usedbgColor = bghex;
     } else { usedbgColor = bgcolors[colorNum]; }
-		document.getElementById("color").innerHTML = "<style>.turnWhite, #options {background-color: "+usedColor+";} body {background-color: "+usedbgColor+";} </style>";
+		document.getElementById("color").innerHTML = "<style>.tableColor {background-color: "+usedColor+";} body {background-color: "+usedbgColor+";} </style>";
 	}
 }
 
