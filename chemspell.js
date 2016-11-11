@@ -173,7 +173,7 @@ function makeTable(spelling, line) {
 		} else if (Number(number) >= 119) {
 			number = ""
 		}
-		table = table+"<td class=\"number tableColor\">"+number+"</td>";
+		table = table+"<td class=\"number turnWhite\">"+number+"</td>";
 	}
 	table = table+"</tr><tr>"
 	for (i=0; i < spelling.length; i++) {
@@ -182,11 +182,11 @@ function makeTable(spelling, line) {
 		} else {
 			symbol = symbols[spelling[i]]
 		}
-		table = table+"<td class=\"symbol tableColor\">"+symbol+"</td>";
+		table = table+"<td class=\"symbol turnWhite\">"+symbol+"</td>";
 	}
 	table = table+"</tr><tr>"
 	for (i=0; i < spelling.length; i++) {
-		table = table+"<td class=\"name tableColor\">"+names[spelling[i]]+"</td>";
+		table = table+"<td class=\"name turnWhite\">"+names[spelling[i]]+"</td>";
 	}
 	table = table+"</table>"
 	document.getElementById(line).innerHTML = table
@@ -202,10 +202,11 @@ function color() {
 	var getHex = "#"+urlVars.hex;
 	if ((Math.floor(Math.random()*100) === 1)|| trick === "rick") {
 		youtube("dQw4w9WgXcQ");
-		document.getElementById("color").innerHTML = "<style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;} .error, #inputDescription, #links a {color: white;} #links a {border-color: white;}</style>";
+		document.getElementById("color").innerHTML = "<style>.turnWhite {color: white !important; border-color: white !important;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;} .error, #inputDescription, #links a {color: white;} #links a {border-color: white;}</style>";
 	} else if ((Math.floor(Math.random()*100) === 1)|| trick === "trump") {
 		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
-		document.getElementById("color").innerHTML = "<div id=\"trump\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.table, #logo, #description, footer {color: white;} .symbol, .name, .number, .symbolLogo, .nameLogo, .numberLogo {border: 0.0625vw solid white;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;} .error, #inputDescription, #links a {color: white;} #links a {border-color: white;}</style>";
+
+    document.getElementById("color").innerHTML = "<div id=\"trump\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.turnWhite {color: white !important; border-color: white !important;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;}</style>";
   } else if (Math.floor(Math.random()*50) === 1 || trick === "rainbow") {
   		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
   		document.getElementById("color").innerHTML = "<div id=\"rainbow\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
@@ -224,7 +225,7 @@ function color() {
 		} else if (bghex !== "#undefined") {
       usedbgColor = bghex;
     } else { usedbgColor = bgcolors[colorNum]; }
-		document.getElementById("color").innerHTML = "<style>.tableColor, #links a, #options {background-color: "+usedColor+";} body {background-color: "+usedbgColor+";} </style>";
+		document.getElementById("color").innerHTML = "<style>.turnWhite, #options {background-color: "+usedColor+";} body {background-color: "+usedbgColor+";} </style>";
 	}
 }
 

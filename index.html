@@ -20,15 +20,17 @@
 	<body onLoad="elementSpell()">
 		<div id="color"></div>
 		<div id="vid"><div style="position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;"></div><div style="position: fixed; z-index: -99; width: 100%; height: 100%; margin: -8px;" id="vidDiv"><div id="video"></div></div></div>
-		<div id="wrapper">
+		<div id="wrapper" class="turnWhite">
 			<div id="top">
-				<div id="logo"><div id="logoTable"><table><tbody><tr><td class="numberLogo tableColor">6</td><td class="numberLogo tableColor">1</td><td class="numberLogo tableColor">-1</td><td class="numberLogo tableColor"></td></tr><tr><td class="symbolLogo tableColor">C</td><td class="symbolLogo tableColor">H</td><td class="symbolLogo tableColor">e<sup>-</sup></td><td class="symbolLogo tableColor">m</td></tr><tr><td class="nameLogo tableColor">Carbon</td><td class="nameLogo tableColor">Hydrogen</td><td class="nameLogo tableColor">Electron</td><td class="nameLogo tableColor">Mass</td></tr></tbody></table></div><div id="logoText"><p>Speller</p></div><sup id="TM">TM</sup></div>
+				<div id="logo"><div id="logoTable"><table><tbody><tr><td class="numberLogo turnWhite">6</td><td class="numberLogo turnWhite">1</td><td class="numberLogo turnWhite">-1</td><td class="numberLogo turnWhite"></td></tr><tr><td class="symbolLogo turnWhite">C</td>
+					<td class="symbolLogo turnWhite">H</td><td class="symbolLogo turnWhite">e<sup>-</sup></td><td class="symbolLogo turnWhite">m</td></tr><tr><td class="nameLogo turnWhite">Carbon</td><td class="nameLogo turnWhite">Hydrogen</td><td class="nameLogo turnWhite">Electron</td>
+						<td class="nameLogo turnWhite">Mass</td></tr></tbody></table></div><div id="logoText"><p>Speller</p></div><sup id="TM">TM</sup></div>
 				<h1 id="description">Spell with elements and subatomic particles!</h1>
 				<input type="text" id="wordInput" onKeyUp="checkKey(event)">
 				<button onclick="elementSpell()" id="button">Spell it!</button>
 			</div>
 			<div id="tables"></div>
-			<div id="links"><a id="spellings" href="spellings.html">All Spellings</a><a id="optionsLink" href="options.html">Options</a></div>
+			<div id="links"><a id="spellings" href="spellings.html" class="turnWhite">All Spellings</a><a id="optionsLink" href="options.html" class="turnWhite">Options</a></div>
 			<footer>&copy; 2016 Kevin Higgs </footer>
 		</div>
 	</body>
