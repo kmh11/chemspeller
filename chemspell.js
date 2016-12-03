@@ -16,6 +16,25 @@ var ready=false;
 var word;
 
 
+var fontColor = {
+  black: "white",
+  gray: "white",
+  silver: "black",
+  white: "black",
+  maroon: "white",
+  red: "black",
+  olive: "white",
+  yellow: "black",
+  green: "white",
+  lime: "black",
+  teal: "white",
+  aqua: "black",
+  navy: "white",
+  blue: "white",
+  purple: "white",
+  fuchsia: "white"
+}
+
 function makeUrlVars(varDict) {
   varString = "?"
   if (varDict.word !== undefined) {
@@ -202,7 +221,7 @@ function color() {
 	var getHex = "#"+urlVars.hex;
 	if ((Math.floor(Math.random()*100) === 1)|| trick === "rick") {
 		youtube("dQw4w9WgXcQ");
-		document.getElementById("color").innerHTML = "<style>.turnWhite {color: white !important; border-color: white !important;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;} .error, #inputDescription, #links a {color: white;} #links a {border-color: white;}</style>";
+		document.getElementById("color").innerHTML = "<style>.turnWhite {color: white !important; border-color: white !important;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;}</style>";
 	} else if ((Math.floor(Math.random()*100) === 1)|| trick === "trump") {
 		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
 
