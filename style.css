@@ -19,6 +19,7 @@
 	margin: 0 auto;
 	text-align: center;
 	padding: 1em;
+	font-family: "vera-sans";
 }
 #applyButton {
 	font-size: 3em;
@@ -234,4 +235,7 @@ table a {
 		position: relative;
 		bottom: 0.5em;
 	}
+}
+a {
+	font-family: inherit;
 }
