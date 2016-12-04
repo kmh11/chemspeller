@@ -410,7 +410,7 @@ function getInfo() {
   httpGetAsync("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&origin=*&redirects=&titles="+element.toLowerCase(), function(response) {
     var wiki = JSON.parse(response);
     for (var v in wiki.query.pages) {
-      document.getElementById("info").innerHTML = wiki.query.pages[v].extract.split("\n")[0];
+      document.getElementById("info").innerHTML = wiki.query.pages[v].extract.split("\n")[0]+"<br><br><a href=https://en.wikipedia.org/wiki/"+wiki.query.pages[v].title.replace(" ","%20")+">Read More</a>";
     }
   })
 }
