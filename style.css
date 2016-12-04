@@ -13,6 +13,13 @@
 	text-align: left;
 	padding-left: 1em;
 }
+#infocont {
+	width: 30em;
+	border: 0.09em solid black;
+	margin: 0 auto;
+	text-align: center;
+	padding: 1em;
+}
 #applyButton {
 	font-size: 3em;
 }
@@ -175,6 +182,10 @@ footer {
 	font-size: 1em;
 	margin-bottom: 0.5em;
 	margin-top: 0.5em;
+}
+table a {
+	text-decoration: inherit;
+	color: inherit;
 }
 @media only screen and (orientation: landscape) {
 	#rainbow {
