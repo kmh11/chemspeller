@@ -66,6 +66,7 @@ function options() {
   var urlVars = getUrlVars();
   document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(urlVars));
   document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(urlVars));
+  document.getElementById("aboutLink").setAttribute("href", "about.html"+makeUrlVars(urlVars));
   if (urlVars.word != undefined) {
     document.getElementById("defaultWord").value = urlVars.word
   }
@@ -305,6 +306,7 @@ function allSpellings() {
 	history.replaceState('', document.title, "spellings.html"+makeUrlVars(params))
 	document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(params));
   document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
+  document.getElementById("aboutLink").setAttribute("href", "about.html"+makeUrlVars(params));
 	words = word.split(" ");
 	spells = getSpellings(words[0], _elementSpell(words[0].toLowerCase(), [])).sort(compareLength)
 	for (w = 1; w < words.length; w++) {
@@ -334,6 +336,7 @@ function elementSpell() {
 	history.replaceState('', document.title, "index.html"+makeUrlVars(params))
 	document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(params))
   document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
+  document.getElementById("aboutLink").setAttribute("href", "about.html"+makeUrlVars(params));
 	if (/[^A-Za-z ]/g.test(word)) {
 		word = ";"
 	}
@@ -406,6 +409,7 @@ function getInfo() {
   document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(urlVars));
   document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(urlVars))
   document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(urlVars));
+  document.getElementById("aboutLink").setAttribute("href", "about.html"+makeUrlVars(urlVars));
   document.getElementById("elementName").innerHTML = "<strong>"+element+"<strong>"
   httpGetAsync("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&origin=*&redirects=&titles="+element.toLowerCase(), function(response) {
     var wiki = JSON.parse(response);
@@ -413,6 +417,14 @@ function getInfo() {
       document.getElementById("info").innerHTML = wiki.query.pages[v].extract.split("\n")[0]+"<br><br><a href=https://en.wikipedia.org/wiki/"+wiki.query.pages[v].title.replace(" ","%20")+">Read More</a>";
     }
   })
+}
+
+function about() {
+  color()
+  var urlVars = getUrlVars()
+  document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(urlVars));
+  document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(urlVars))
+  document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(urlVars));
 }
 
 function httpGetAsync(theUrl, callback) {
