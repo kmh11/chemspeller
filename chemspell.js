@@ -67,6 +67,7 @@ function options() {
   document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(urlVars));
   document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(urlVars));
   document.getElementById("aboutLink").setAttribute("href", "about.html"+makeUrlVars(urlVars));
+  document.getElementById("sitemapLink").setAttribute("href", "sitemap.html"+makeUrlVars(urlVars));
   if (urlVars.word != undefined) {
     document.getElementById("defaultWord").value = urlVars.word
   }
@@ -307,6 +308,7 @@ function allSpellings() {
 	document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(params));
   document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
   document.getElementById("aboutLink").setAttribute("href", "about.html"+makeUrlVars(params));
+  document.getElementById("sitemapLink").setAttribute("href", "sitemap.html"+makeUrlVars(params));
 	words = word.split(" ");
 	spells = getSpellings(words[0], _elementSpell(words[0].toLowerCase(), [])).sort(compareLength)
 	for (w = 1; w < words.length; w++) {
@@ -337,6 +339,7 @@ function elementSpell() {
 	document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(params))
   document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
   document.getElementById("aboutLink").setAttribute("href", "about.html"+makeUrlVars(params));
+  document.getElementById("sitemapLink").setAttribute("href", "sitemap.html"+makeUrlVars(params));
 	if (/[^A-Za-z ]/g.test(word)) {
 		word = ";"
 	}
@@ -410,6 +413,7 @@ function getInfo() {
   document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(urlVars))
   document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(urlVars));
   document.getElementById("aboutLink").setAttribute("href", "about.html"+makeUrlVars(urlVars));
+  document.getElementById("sitemapLink").setAttribute("href", "sitemap.html"+makeUrlVars(urlVars));
   document.getElementById("elementName").innerHTML = "<strong>"+element+"<strong>"
   httpGetAsync("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&origin=*&redirects=&titles="+element.toLowerCase(), function(response) {
     var wiki = JSON.parse(response);
@@ -423,8 +427,22 @@ function about() {
   color()
   var urlVars = getUrlVars()
   document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(urlVars));
-  document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(urlVars))
+  document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(urlVars));
   document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(urlVars));
+  document.getElementById("sitemapLink").setAttribute("href", "sitemap.html"+makeUrlVars(urlVars));
+}
+
+function sitemap() {
+  color()
+  var urlVars = getUrlVars()
+  document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(urlVars));
+  document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(urlVars));
+  document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(urlVars));
+  document.getElementById("aboutLink").setAttribute("href", "about.html"+makeUrlVars(urlVars));
+  document.getElementById("spellingMap").setAttribute("href", "index.html"+makeUrlVars(urlVars));
+  document.getElementById("spellingsMap").setAttribute("href", "spellings.html"+makeUrlVars(urlVars));
+  document.getElementById("optionsLinkMap").setAttribute("href", "options.html"+makeUrlVars(urlVars));
+  document.getElementById("aboutLinkMap").setAttribute("href", "about.html"+makeUrlVars(urlVars));
 }
 
 function httpGetAsync(theUrl, callback) {
