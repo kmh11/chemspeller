@@ -38,7 +38,7 @@ input[type=radio] {
 	width: 0.6em;
 }
 #links {
-	font-size: 0.7em;
+	font-size: 1.5em;
 	text-align: center;
 	padding-top: 1em;
 }
@@ -235,7 +235,22 @@ table a {
 		position: relative;
 		bottom: 0.5em;
 	}
+	#download {
+		position: relative;
+		top: -1em;
+		font-size: 0.8em;
+	}
+	#links {
+		font-size: 0.7em;
+		text-align: center;
+		padding-top: 1em;
+	}
 }
 a {
 	font-family: inherit;
+}
+#download {
+	position: relative;
+	top: -1em;
+	font-size: 0.7em;
 }
