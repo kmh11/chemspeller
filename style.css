@@ -1,3 +1,6 @@
+.reversed {
+	transform: scale(-1, 1);
+}
 #defaultWord {
 	font-size: 1em;
 	margin-bottom: 0.5em;
@@ -6,7 +9,7 @@
 	margin-bottom: 1em;
 }
 #options {
-	height: 20em;
+	height: 21.5em;
 	width: 30em;
 	border: 0.09em solid black;
 	margin: 0 auto;
@@ -33,7 +36,7 @@
 	margin-right: 0.1em;
 	font-family: "vera-sans", sans-serif;
 }
-input[type=radio] {
+input[type=radio], input[type=checkbox] {
 	height: 0.6em;
 	width: 0.6em;
 }

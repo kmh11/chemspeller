@@ -1,11 +1,16 @@
-var symbolsLower = ['h', 'he', 'li', 'be', 'b', 'c', 'n', 'o', 'f', 'ne', 'na', 'mg', 'al', 'si', 'p', 's', 'cl', 'ar', 'k', 'ca', 'sc', 'ti', 'v', 'cr', 'mn', 'fe', 'co', 'ni', 'cu', 'zn', 'ga', 'ge', 'as', 'se', 'br', 'kr', 'rb', 'sr', 'y', 'zr', 'nb', 'mo', 'tc', 'ru', 'rh', 'pd', 'ag', 'cd', 'in', 'sn', 'sb', 'te', 'i', 'xe', 'cs', 'ba', 'la', 'ce', 'pr', 'nd', 'pm', 'sm', 'eu', 'gd', 'tb', 'dy', 'ho', 'er', 'tm', 'yb', 'lu', 'hf', 'ta', 'w', 're', 'os', 'ir', 'pt', 'au', 'hg', 'tl', 'pb', 'bi', 'po', 'at', 'rn', 'fr', 'ra', 'ac', 'th', 'pa', 'u', 'np', 'pu', 'am', 'cm', 'bk', 'cf', 'es', 'fm', 'md', 'no', 'lr', 'rf', 'db', 'sg', 'bh', 'hs', 'mt', 'ds', 'rg', 'cn', 'uut', 'fl', 'uup', 'lv', 'uus', 'uuo', 'e', 'g', 'l', 'm','a', 'z', 'j', 't', 'q', 'd', 'x', 'r'];
-var symbols = ['H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne', 'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl', 'Ar', 'K', 'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga', 'Ge', 'As', 'Se', 'Br', 'Kr', 'Rb', 'Sr', 'Y', 'Zr', 'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd', 'In', 'Sn', 'Sb', 'Te', 'I', 'Xe', 'Cs', 'Ba', 'La', 'Ce', 'Pr', 'Nd', 'Pm', 'Sm', 'Eu', 'Gd', 'Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb', 'Lu', 'Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt', 'Au', 'Hg', 'Tl', 'Pb', 'Bi', 'Po', 'At', 'Rn', 'Fr', 'Ra', 'Ac', 'Th', 'Pa', 'U', 'Np', 'Pu', 'Am', 'Cm', 'Bk', 'Cf', 'Es', 'Fm', 'Md', 'No', 'Lr', 'Rf', 'Db', 'Sg', 'Bh', 'Hs', 'Mt', 'Ds', 'Rg', 'Cn', 'Uut', 'Fl', 'Uup', 'Lv', 'Uus', 'Uuo', 'e', 'g', 'l', 'm', '&alpha;', 'Z', 'J', '&tau;', 'q', 'd', 'X', 'R'];
-var names = ['Hydrogen', 'Helium', 'Lithium', 'Beryllium', 'Boron', 'Carbon', 'Nitrogen', 'Oxygen', 'Fluorine', 'Neon', 'Sodium', 'Magnesium', 'Aluminium', 'Silicon', 'Phosphorus', 'Sulfur', 'Chlorine', 'Argon', 'Potassium', 'Calcium', 'Scandium', 'Titanium', 'Vanadium', 'Chromium', 'Manganese', 'Iron', 'Cobalt', 'Nickel', 'Copper', 'Zinc', 'Gallium', 'Germanium', 'Arsenic', 'Selenium', 'Bromine', 'Krypton', 'Rubidium', 'Strontium', 'Yttrium', 'Zirconium', 'Niobium', 'Molybdenum', 'Technetium', 'Ruthenium', 'Rhodium', 'Palladium', 'Silver', 'Cadmium', 'Indium', 'Tin', 'Antimony', 'Tellurium', 'Iodine', 'Xenon', 'Caesium', 'Barium', 'Lanthanum', 'Cerium', 'Praseodymium', 'Neodymium', 'Promethium', 'Samarium', 'Europium', 'Gadolinium', 'Terbium', 'Dysprosium', 'Holmium', 'Erbium', 'Thulium', 'Ytterbium', 'Lutetium', 'Hafnium', 'Tantalum', 'Tungsten', 'Rhenium', 'Osmium', 'Iridium', 'Platinum', 'Gold', 'Mercury', 'Thallium', 'Lead', 'Bismuth', 'Polonium', 'Astatine', 'Radon', 'Francium', 'Radium', 'Actinium', 'Thorium', 'Protactinium', 'Uranium', 'Neptunium', 'Plutonium', 'Americium', 'Curium', 'Berkelium', 'Californium', 'Einsteinium', 'Fermium', 'Mendelevium', 'Nobelium', 'Lawrencium', 'Rutherfordium', 'Dubnium', 'Seaborgium', 'Bohrium', 'Hassium', 'Meitnerium', 'Darmstadtium', 'Roentgenium', 'Copernicium', 'Ununtrium', 'Flerovium', 'Ununpentium', 'Livermorium', 'Ununseptium', 'Ununoctium', 'Electron', 'Gluon', 'Lepton', 'Mass', 'Alpha Particle', 'Z Boson', 'Joule', 'Tau', 'Quark', 'Down Quark', 'X Boson', 'Roentgen'];
+var symbolsOrigLower = ['h', 'he', 'li', 'be', 'b', 'c', 'n', 'o', 'f', 'ne', 'na', 'mg', 'al', 'si', 'p', 's', 'cl', 'ar', 'k', 'ca', 'sc', 'ti', 'v', 'cr', 'mn', 'fe', 'co', 'ni', 'cu', 'zn', 'ga', 'ge', 'as', 'se', 'br', 'kr', 'rb', 'sr', 'y', 'zr', 'nb', 'mo', 'tc', 'ru', 'rh', 'pd', 'ag', 'cd', 'in', 'sn', 'sb', 'te', 'i', 'xe', 'cs', 'ba', 'la', 'ce', 'pr', 'nd', 'pm', 'sm', 'eu', 'gd', 'tb', 'dy', 'ho', 'er', 'tm', 'yb', 'lu', 'hf', 'ta', 'w', 're', 'os', 'ir', 'pt', 'au', 'hg', 'tl', 'pb', 'bi', 'po', 'at', 'rn', 'fr', 'ra', 'ac', 'th', 'pa', 'u', 'np', 'pu', 'am', 'cm', 'bk', 'cf', 'es', 'fm', 'md', 'no', 'lr', 'rf', 'db', 'sg', 'bh', 'hs', 'mt', 'ds', 'rg', 'cn', 'uut', 'fl', 'uup', 'lv', 'uus', 'uuo', 'e', 'g', 'l', 'm','a', 'z', 'j', 't', 'q', 'd', 'x', 'r'];
+var symbolsOrig = ['H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne', 'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl', 'Ar', 'K', 'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga', 'Ge', 'As', 'Se', 'Br', 'Kr', 'Rb', 'Sr', 'Y', 'Zr', 'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd', 'In', 'Sn', 'Sb', 'Te', 'I', 'Xe', 'Cs', 'Ba', 'La', 'Ce', 'Pr', 'Nd', 'Pm', 'Sm', 'Eu', 'Gd', 'Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb', 'Lu', 'Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt', 'Au', 'Hg', 'Tl', 'Pb', 'Bi', 'Po', 'At', 'Rn', 'Fr', 'Ra', 'Ac', 'Th', 'Pa', 'U', 'Np', 'Pu', 'Am', 'Cm', 'Bk', 'Cf', 'Es', 'Fm', 'Md', 'No', 'Lr', 'Rf', 'Db', 'Sg', 'Bh', 'Hs', 'Mt', 'Ds', 'Rg', 'Cn', 'Uut', 'Fl', 'Uup', 'Lv', 'Uus', 'Uuo', 'e', 'g', 'l', 'm', '&alpha;', 'Z', 'J', '&tau;', 'q', 'D', 'X', 'R'];
+var symbolsReversed = ["eH", "iL", "eB", "eN", "aN", "gM", "lA", "iS", "lC", "rA", "aC", "cS", "iT", "rC", "nM", "eF", "oC", "iN", "uC", "nZ", "aG", "eG", "sA", "eS", "rB", "rK", "bR", "rS", "rZ", "bN", "oM", "cT", "uR", "hR", "dP", "gA", "dC", "nI", "nS", "bS", "eT", "eX", "sC", "aB", "aL", "eC", "rP", "dN", "mP", "mS", "uE", "dG", "bT", "yD", "oH", "rE", "mT", "bY", "uL", "fH", "aT", "eR", "sO", "rI", "tP", "uA", "gH", "lT", "bP", "iB", "oP", "tA", "nR", "rF", "aR", "cA", "hT", "aP", "pN", "uP", "mA", "mC", "kB", "fC", "sE", "mF", "dM", "oN", "rL", "fR", "bD", "gS", "hB", "sH", "tM", "sD", "gR", "nC", "lF", "vL"]
+var symbolsReversedLower = ["eh", "il", "eb", "en", "an", "gm", "la", "is", "lc", "ra", "ac", "cs", "it", "rc", "nm", "ef", "oc", "in", "uc", "nz", "ag", "eg", "sa", "es", "rb", "rk", "br", "rs", "rz", "bn", "om", "ct", "ur", "hr", "dp", "ga", "dc", "ni", "ns", "bs", "et", "ex", "sc", "ab", "al", "ec", "rp", "dn", "mp", "ms", "ue", "dg", "bt", "yd", "oh", "re", "mt", "by", "ul", "fh", "at", "er", "so", "ri", "tp", "ua", "gh", "lt", "bp", "ib", "op", "ta", "nr", "rf", "ar", "ca", "ht", "ap", "pn", "up", "ma", "mc", "kb", "fc", "se", "mf", "dm", "on", "rl", "fr", "bd", "gs", "hb", "sh", "tm", "sd", "gr", "nc", "lf", "vl"]
+var reversedNames = ["Helium", "Lithium", "Beryllium", "Neon", "Sodium", "Magnesium", "Aluminium", "Silicon", "Chlorine", "Argon", "Calcium", "Scandium", "Titanium", "Chromium", "Manganese", "Iron", "Cobalt", "Nickel", "Copper", "Zinc", "Gallium", "Germanium", "Arsenic", "Selenium", "Bromine", "Krypton", "Rubidium", "Strontium", "Zirconium", "Niobium", "Molybdenum", "Technetium", "Ruthenium", "Rhodium", "Palladium", "Silver", "Cadmium", "Indium", "Tin", "Antimony", "Tellurium", "Xenon", "Caesium", "Barium", "Lanthanum", "Cerium", "Praseodymium", "Neodymium", "Promethium", "Samarium", "Europium", "Gadolinium", "Terbium", "Dysprosium", "Holmium", "Erbium", "Thulium", "Ytterbium", "Lutetium", "Hafnium", "Tantalum", "Rhenium", "Osmium", "Iridium", "Platinum", "Gold", "Mercury", "Thallium", "Lead", "Bismuth", "Polonium", "Astatine", "Radon", "Francium", "Radium", "Actinium", "Thorium", "Protactinium", "Neptunium", "Plutonium", "Americium", "Curium", "Berkelium", "Californium", "Einsteinium", "Fermium", "Mendelevium", "Nobelium", "Lawrencium", "Rutherfordium", "Dubnium", "Seaborgium", "Bohrium", "Hassium", "Meitnerium", "Darmstadtium", "Roentgenium", "Copernicium", "Flerovium", "Livermorium"]
+var names = ['Hydrogen', 'Helium', 'Lithium', 'Beryllium', 'Boron', 'Carbon', 'Nitrogen', 'Oxygen', 'Fluorine', 'Neon', 'Sodium', 'Magnesium', 'Aluminium', 'Silicon', 'Phosphorus', 'Sulfur', 'Chlorine', 'Argon', 'Potassium', 'Calcium', 'Scandium', 'Titanium', 'Vanadium', 'Chromium', 'Manganese', 'Iron', 'Cobalt', 'Nickel', 'Copper', 'Zinc', 'Gallium', 'Germanium', 'Arsenic', 'Selenium', 'Bromine', 'Krypton', 'Rubidium', 'Strontium', 'Yttrium', 'Zirconium', 'Niobium', 'Molybdenum', 'Technetium', 'Ruthenium', 'Rhodium', 'Palladium', 'Silver', 'Cadmium', 'Indium', 'Tin', 'Antimony', 'Tellurium', 'Iodine', 'Xenon', 'Caesium', 'Barium', 'Lanthanum', 'Cerium', 'Praseodymium', 'Neodymium', 'Promethium', 'Samarium', 'Europium', 'Gadolinium', 'Terbium', 'Dysprosium', 'Holmium', 'Erbium', 'Thulium', 'Ytterbium', 'Lutetium', 'Hafnium', 'Tantalum', 'Tungsten', 'Rhenium', 'Osmium', 'Iridium', 'Platinum', 'Gold', 'Mercury', 'Thallium', 'Lead', 'Bismuth', 'Polonium', 'Astatine', 'Radon', 'Francium', 'Radium', 'Actinium', 'Thorium', 'Protactinium', 'Uranium', 'Neptunium', 'Plutonium', 'Americium', 'Curium', 'Berkelium', 'Californium', 'Einsteinium', 'Fermium', 'Mendelevium', 'Nobelium', 'Lawrencium', 'Rutherfordium', 'Dubnium', 'Seaborgium', 'Bohrium', 'Hassium', 'Meitnerium', 'Darmstadtium', 'Roentgenium', 'Copernicium', 'Ununtrium', 'Flerovium', 'Ununpentium', 'Livermorium', 'Ununseptium', 'Ununoctium', 'Electron', 'Gluon', 'Lepton', 'Mass', 'Alpha Particle', 'Z Boson', 'Joule', 'Tau', 'Quark', 'Deuterium', 'X Boson', 'Roentgen'];
 var colors = ["#D4F2FC", "#FCDED4", "#DEFCD4", "#F2D4FC", "#FAFCD4", "#D4FCF8"]
 var bgcolors = ["#CEDCE0", "#E0CEC8", "#D3E6CC", "#DECFE3", "#FBFCE6", "#C5DEDB"]
 var table;
 var number;
 var symbol;
+var symbols;
+var symbolsLower;
 var one;
 var two;
 var three;
@@ -80,6 +85,9 @@ function options() {
   if (urlVars.trick != undefined) {
     document.getElementById("trickChoice").value = urlVars.trick
   }
+  if (urlVars["rev"] != undefined) {
+    document.getElementById("rev").checked = false
+  }
   if (urlVars["length"] != undefined) {
     document.getElementById("long").checked = true;
   } else {document.getElementById("short").checked = true}
@@ -109,7 +117,13 @@ function apply() {
   var word = document.getElementById("defaultWord").value;
   var length = document.querySelector("input[name='length']:checked").value;
   var trick = document.getElementById("trickChoice").value;
+  var rev = document.getElementById("rev").checked;
   var urlVars = getUrlVars()
+  if (rev) {
+    delete urlVars.rev
+  } else {
+    urlVars.rev = "0"
+  }
   if (color.value != "default") {
     urlVars.color = color.value
   } else {delete urlVars.color}
@@ -184,37 +198,66 @@ function makeTable(spelling, line, final) {
 	line = line.toString()
 	table = "<table><tr>";
 	for (i=0; i < spelling.length; i++) {
-		number = (symbols.indexOf(symbols[spelling[i]])+1).toString();
+    reverseClass = ""
+    if (symbolsReversed.indexOf(symbols[spelling[i]]) != -1) {
+      number = (symbols.indexOf(symbols[spelling[i]][1]+symbols[spelling[i]][0])+1).toString();
+      reverseClass = "reversed"
+    } else {
+      number = (symbols.indexOf(symbols[spelling[i]])+1).toString();
+    }
 		if (number === "119") {
 			number = "-1";
 		} else if (number === "120") {
 			number = "0"
-		} else if (Number(number) >= 119) {
+		} else if (number == "128") {
+      number = "1"
+    } else if (Number(number) >= 119) {
 			number = ""
 		}
     var urlVars = getUrlVars()
-    urlVars["e"] = names[spelling[i]]
+    if (symbolsReversed.indexOf(symbols[spelling[i]]) != -1) {
+      urlVars["e"] = reversedNames[spelling[i]-symbolsOrig.length]
+    } else {
+      urlVars["e"] = names[spelling[i]]
+    }
     var infourl = "info.html"+makeUrlVars(urlVars)
-		table = table+"<td class=\"number turnWhite tableColor\">"+"<a href=\""+infourl+"\">"+number+"</a></td>";
+		table = table+"<td class=\"number turnWhite tableColor "+reverseClass+"\">"+"<a href=\""+infourl+"\">"+number+"</a></td>";
 	}
 	table = table+"</tr><tr>"
 	for (i=0; i < spelling.length; i++) {
+    reverseClass = ""
 		if (symbols[spelling[i]] === "e") {
 			symbol = "e<sup>-</sup>"
-		} else {
+		} else if (symbolsReversed.indexOf(symbols[spelling[i]]) != -1) {
+      symbol = symbols[spelling[i]][1]+symbols[spelling[i]][0]
+      reverseClass = "reversed"
+    } else {
 			symbol = symbols[spelling[i]]
 		}
     var urlVars = getUrlVars()
-    urlVars["e"] = names[spelling[i]]
-    var infourl = "info.html"+makeUrlVars(urlVars)
-		table = table+"<td class=\"symbol turnWhite tableColor\">"+"<a href=\""+infourl+"\">"+symbol+"</a></td>";
+    if (symbolsReversed.indexOf(symbols[spelling[i]]) != -1) {
+      urlVars["e"] = reversedNames[spelling[i]-symbolsOrig.length]
+    } else {
+      urlVars["e"] = names[spelling[i]]
+    }    var infourl = "info.html"+makeUrlVars(urlVars)
+		table = table+"<td class=\"symbol turnWhite tableColor "+reverseClass+"\">"+"<a href=\""+infourl+"\">"+symbol+"</a></td>";
 	}
 	table = table+"</tr><tr>"
 	for (i=0; i < spelling.length; i++) {
+    reverseClass = ""
     var urlVars = getUrlVars()
-    urlVars["e"] = names[spelling[i]]
-    var infourl = "info.html"+makeUrlVars(urlVars)
-		table = table+"<td class=\"name turnWhite tableColor\">"+"<a href=\""+infourl+"\">"+names[spelling[i]]+"</a></td>";
+    if (symbolsReversed.indexOf(symbols[spelling[i]]) != -1) {
+      urlVars["e"] = reversedNames[spelling[i]-symbolsOrig.length]
+      reverseClass = "reversed"
+    } else {
+      urlVars["e"] = names[spelling[i]]
+    }    var infourl = "info.html"+makeUrlVars(urlVars)
+    if (symbolsReversed.indexOf(symbols[spelling[i]]) != -1) {
+      curName = reversedNames[spelling[i]-symbolsOrig.length]
+    } else {
+      curName = names[spelling[i]]
+    }
+		table = table+"<td class=\"name turnWhite tableColor "+reverseClass+"\">"+"<a href=\""+infourl+"\">"+curName+"</a></td>";
 	}
 	table = table+"</table>"
 	document.getElementById(line).innerHTML = table
@@ -226,7 +269,6 @@ function makeTable(spelling, line, final) {
           if (document.getElementById("links").innerHTML.indexOf("id=\"download\"") == -1) {
             document.getElementById("links").innerHTML = "<a id=\"download\" class=\"turnWhite tableColor\">Download Image</a><br>"+document.getElementById("links").innerHTML
           }
-          console.log("here")
           var download = document.getElementById("download")
           download.href = dataUrl
           download.download = word+"-chemspeller.png"
@@ -275,39 +317,29 @@ function color() {
 }
 
 function bestSpelling(spellings) {
-	var nonElements = []
-	var allElements = []
-	for (var s = 0; s < spellings.length; s++) {
-		flag = false;
-		for (var e = 0; e < spellings[s].length; e++) {
-			if (spellings[s][e] > 117) {
-				nonElements.push(spellings[s])
-				flag = true;
-				break
-			}
-		}
-		if (!flag) {
-			allElements.push(spellings[s])
-		}
-	}
-	allElements = allElements.sort(compareLength)
-	nonElements = nonElements.sort(compareLength)
   if (getUrlVars()["length"] !== undefined) {
     var last = true;
   }
   if (last) {
-    return nonElements[nonElements.length-1]
+    return spellings.sort(compareLength)[spellings.sort(compareLength).length-1]
   }
-	if (allElements.length > 0) {
-		return allElements[0]
-	} else {
-		return nonElements[0]
-	}
+  spellings = spellings.sort(compareLengthCount)
+  return spellings[0]
 }
 
 function allSpellings() {
 	spellings = []
 	var spells = []
+  reversed = true
+  if (getUrlVars()["rev"] != undefined) {
+    reversed = false
+  }
+  symbols = symbolsOrig
+  symbolsLower = symbolsOrigLower
+  if (reversed) {
+    symbols = symbols.concat(symbolsReversed)
+    symbolsLower = symbolsLower.concat(symbolsReversedLower)
+  }
 	color();
 	document.getElementById("tables").innerHTML = ""
 	word = document.getElementById("wordInput").value;
@@ -338,6 +370,16 @@ function allSpellings() {
 function elementSpell() {
 	spellings = []
 	color();
+  reversed = true
+  if (getUrlVars()["rev"] != undefined) {
+    reversed = false
+  }
+  symbols = symbolsOrig
+  symbolsLower = symbolsOrigLower
+  if (reversed) {
+    symbols = symbols.concat(symbolsReversed)
+    symbolsLower = symbolsLower.concat(symbolsReversedLower)
+  }
 	document.getElementById("tables").innerHTML = ""
 	word = document.getElementById("wordInput").value
 	params = getUrlVars()
@@ -370,6 +412,58 @@ function printElements(spelling) {
 
 var compareLength = function(a, b) {
 	return a.length - b.length;
+}
+var compareLengthCount = function(a, b) {
+  var aCount = 0
+  var aNon = 0
+  var bCount = 0
+  var bNon = 0
+  for (var i in a) {
+    if (a[i] > 130) {
+      aCount++
+    } else if (a[i] > 117) {
+      aNon++
+    }
+  }
+  for (var i in b) {
+    if (b[i] > 130) {
+      bCount++
+    } else if (b[i] > 117) {
+      bNon++
+    }
+  }
+  if (aNon == 0 & aCount == 0 & (bNon != 0 | bCount != 0)) {
+    return -1
+  }
+  if (bNon == 0 & bCount == 0 & (aNon != 0 | aCount != 0)) {
+    return 1
+  }
+  if (aNon == 0 & aCount == 0 & bNon == 0 & bCount == 0) {
+    if (a.length < b.length) {
+      return -1
+    } else {return 1}
+  }
+  if (aNon < bNon & (aCount < bCount)) {
+    return -1
+  }
+  if (bNon < aNon & (bCount < aCount)) {
+    return 1
+  }
+  if (aNon == bNon) {
+    if (aCount < bCount) {
+      return -1
+    } else if (bCount < aCount) {
+      return 1
+    }
+  }
+  if (aCount == bCount) {
+    if (aNon < bNon) {
+      return -1
+    } else if (bNon < aNon) {
+      return 1
+    }
+  }
+  return a.length - b.length
 }
 
 function getSpellings(word, spelling) {
