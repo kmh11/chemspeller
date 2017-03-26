@@ -22,6 +22,7 @@
 }
 #infocont {
 	width: 30em;
+	font-size: 1.5em;
 	border: 0.09em solid black;
 	margin: 0 auto;
 	text-align: center;
@@ -246,6 +247,15 @@ table a {
 	}
 }
 @media only screen and (min-width: 768px) {
+	#infocont {
+		font-size: 1em;
+		width: 30em;
+		border: 0.09em solid black;
+		margin: 0 auto;
+		text-align: center;
+		padding: 1em;
+		font-family: "vera-sans";
+	}
 	#options {
 		height: 23.5em;
 		width: 30em;
