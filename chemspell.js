@@ -335,7 +335,7 @@ function color() {
 		} else if (bghex !== "#undefined") {
       usedbgColor = bghex;
     } else { usedbgColor = bgcolors[colorNum]; }
-		document.getElementById("color").innerHTML = "<style>.tableColor {background-color: "+usedColor+";} body {background-color: "+usedbgColor+";} </style>";
+		document.getElementById("color").innerHTML = "<style>.tableColor {background-color: "+usedColor+";} body, html {background-color: "+usedbgColor+";} </style>";
 	}
 }
 
