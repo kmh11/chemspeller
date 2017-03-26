@@ -28,11 +28,70 @@
 						<td class="nameLogo turnWhite tableColor">Mass</td></tr></tbody></table></div><div id="logoText"><p>Speller</p></div><sup id="TM">TM</sup></div>
 				<h1 id="description">Spell with elements and subatomic particles! Click on an element to learn more about it.</h1>
 				<input type="text" id="wordInput" onKeyUp="checkKey(event)">
-				<button onclick="elementSpell()" id="button">Spell it!</button>
+				<button onclick="elementSpell()" id="button">Spell it!</button><div class="links" id="optLink"><a id="optionsDropLink" href="javascript:void(0)" onclick="toggleOptions()" class="turnWhite tableColor">Options&darr;</a></div>
+			</div>
+			<div id="optionsDrop" style="display: none;">
+				<div id="options" class="turnWhite tableColor">
+					<p>I want the spelling the program creates to...</p>
+					<input type="radio" name="length" value="short" id="short" checked></input><label for="short">Be as short as possible (default)</label><br>
+					<input type="radio" name="length" id="long" value="long"></input><label for="long">Be as long as possible</label><br>
+					<input type="checkbox" name="rev" id="rev" value="1" checked></input><label for="rev">Enable reversed elements (default on)</label><br><br>
+					<input type="checkbox" name="allspell" id="allspell" value="1"></input><label for="allspell">See all spellings (default off)</label><br><br>
+					<label for="defaultWord" id="defaultWordLabel">Default words: </label><input id="defaultWord" type="text"></input><br>
+					<label>Foreground color:</label>
+					<select id="colorChoice" class="colorSelect">
+						<option value="default">Default</option>
+						<option value="black" style="background-color: black; color: white;">Black</option>
+						<option value="gray" style="background-color: gray; color: white;">Gray</option>
+						<option value="silver" style="background-color: silver; color: black;">Silver</option>
+						<option value="white" style="background-color: white; color: black;">White</option>
+						<option value="maroon" style="background-color: maroon; color: white;">Maroon</option>
+						<option value="red" style="background-color: red; color: black;">Red</option>
+						<option value="olive" style="background-color: olive; color: white;">Olive</option>
+						<option value="yellow" style="background-color: yellow; color: black;">Yellow</option>
+						<option value="green" style="background-color: green; color: white;">Green</option>
+						<option value="lime" style="background-color: lime; color: black;">Lime</option>
+						<option value="teal" style="background-color: teal; color: white;">Teal</option>
+						<option value="aqua" style="background-color: aqua; color: black;">Aqua</option>
+						<option value="navy" style="background-color: navy; color: white;">Navy</option>
+						<option value="blue" style="background-color: blue; color: white;">Blue</option>
+						<option value="purple" style="background-color: purple; color: white;">Purple</option>
+						<option value="fuchsia" style="background-color: fuchsia; color: white;">Fuchsia</option>
+					</select>
+					<br><label>Background color:</label>
+					<select id="bgcolorChoice" class="colorSelect">
+						<option value="default">Default</option>
+						<option value="black" style="background-color: black; color: white;">Black</option>
+						<option value="gray" style="background-color: gray; color: white;">Gray</option>
+						<option value="silver" style="background-color: silver; color: black;">Silver</option>
+						<option value="white" style="background-color: white; color: black;">White</option>
+						<option value="maroon" style="background-color: maroon; color: white;">Maroon</option>
+						<option value="red" style="background-color: red; color: black;">Red</option>
+						<option value="olive" style="background-color: olive; color: white;">Olive</option>
+						<option value="yellow" style="background-color: yellow; color: black;">Yellow</option>
+						<option value="green" style="background-color: green; color: white;">Green</option>
+						<option value="lime" style="background-color: lime; color: black;">Lime</option>
+						<option value="teal" style="background-color: teal; color: white;">Teal</option>
+						<option value="aqua" style="background-color: aqua; color: black;">Aqua</option>
+						<option value="navy" style="background-color: navy; color: white;">Navy</option>
+						<option value="blue" style="background-color: blue; color: white;">Blue</option>
+						<option value="purple" style="background-color: purple; color: white;">Purple</option>
+						<option value="fuchsia" style="background-color: fuchsia; color: white;">Fuchsia</option>
+					</select><br>
+					<label>Trick:</label>
+					<select id="trickChoice" class="colorSelect">
+						<option value="default">Random (default)</option>
+						<option value="trump">Trump</option>
+						<option value="rainbow">Rainbow</option>
+						<option value="rick">Rick Astley</option>
+						<option value="yee">Yee</option>
+					</select><br>
+					<div class="links" id="applyDiv"><a id="applyButton" href="javascript:void(0)" onclick="apply()" class="turnWhite tableColor">Apply</a></div>
+				</div>
 			</div>
 			<div id="tables"></div>
-			<div id="links"><a id="spellings" href="spellings.html" class="turnWhite tableColor">All Spellings</a><a id="optionsLink" href="options.html" class="turnWhite tableColor">Options</a></div>
-			<footer>&copy; 2016 Kevin Higgs | <a id="kmhzone" href="http://kmh.zone">Other projects</a></footer>
+			<div id="links"></div>
+			<footer>&copy; 2017 Kevin Higgs | <a id="kmhzone" href="http://kmh.zone">Other projects</a></footer>
 		</div>
 	</body>
 </html>

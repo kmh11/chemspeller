@@ -42,6 +42,18 @@ var fontColor = {
   fuchsia: "white"
 }
 
+function toggleOptions() {
+  drop = document.getElementById("optionsDrop")
+  if (drop.style.display == "none") {
+    drop.style.display = "block"
+    document.getElementById("optionsDropLink").innerHTML = "Options&uarr;"
+    options()
+  } else {
+    drop.style.display = "none"
+    document.getElementById("optionsDropLink").innerHTML = "Options&darr;"
+  }
+}
+
 function makeUrlVars(varDict) {
   varString = "?"
   if (varDict.word !== undefined) {
@@ -71,8 +83,7 @@ function options() {
 		window.location.href = window.location.href+"?"
 	}
   var urlVars = getUrlVars();
-  document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(urlVars));
-  document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(urlVars));
+//  document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(urlVars));
   if (urlVars.word != undefined) {
     document.getElementById("defaultWord").value = urlVars.word
   }
@@ -91,10 +102,13 @@ function options() {
   if (urlVars["rev"] != undefined) {
     document.getElementById("rev").checked = false
   }
+  if (urlVars["spell"] != undefined) {
+    document.getElementById("allspell").checked = true
+  }
   if (urlVars["length"] != undefined) {
     document.getElementById("long").checked = true;
   } else {document.getElementById("short").checked = true}
-	color()
+//	color()
 }
 
 function link(page) {
@@ -121,11 +135,17 @@ function apply() {
   var length = document.querySelector("input[name='length']:checked").value;
   var trick = document.getElementById("trickChoice").value;
   var rev = document.getElementById("rev").checked;
+  var allspell = document.getElementById("allspell").checked
   var urlVars = getUrlVars()
   if (rev) {
     delete urlVars.rev
   } else {
     urlVars.rev = "0"
+  }
+  if (allspell) {
+    urlVars.spell = "all"
+  } else {
+    delete urlVars.spell
   }
   if (color.value != "default") {
     urlVars.color = color.value
@@ -331,33 +351,30 @@ function bestSpelling(spellings) {
 }
 
 function allSpellings() {
-	spellings = []
-	var spells = []
-  reversed = true
-  if (getUrlVars()["rev"] != undefined) {
-    reversed = false
-  }
-  symbols = symbolsOrig
-  symbolsLower = symbolsOrigLower
-  if (reversed) {
-    symbols = symbols.concat(symbolsReversed)
-    symbolsLower = symbolsLower.concat(symbolsReversedLower)
-  }
-	color();
-	document.getElementById("tables").innerHTML = ""
-	word = document.getElementById("wordInput").value;
-	params=getUrlVars()
-	if (word === "" && params.word != undefined) {
-		word = params.word;
-		document.getElementById("wordInput").setAttribute("value", word);
-	}
-  if (word !== "") {
-    params.word = word;
-  }
-	history.replaceState('', document.title, "spellings.html"+makeUrlVars(params))
-	document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(params));
-  document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
-	words = word.split(" ");
+  // if (getUrlVars()["rev"] != undefined) {
+  //   reversed = false
+  // }
+  // symbols = symbolsOrig
+  // symbolsLower = symbolsOrigLower
+  // if (reversed) {
+  //   symbols = symbols.concat(symbolsReversed)
+  //   symbolsLower = symbolsLower.concat(symbolsReversedLower)
+  // }
+	// color();
+	// document.getElementById("tables").innerHTML = ""
+	// word = document.getElementById("wordInput").value;
+	// params=getUrlVars()
+	// if (word === "" && params.word != undefined) {
+	// 	word = params.word;
+	// 	document.getElementById("wordInput").setAttribute("value", word);
+	// }
+  // if (word !== "") {
+  //   params.word = word;
+  // }
+	// history.replaceState('', document.title, "spellings.html"+makeUrlVars(params))
+	// document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(params));
+  // document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
+	// words = word.split(" ");
 	spells = getSpellings(words[0], _elementSpell(words[0].toLowerCase(), [])).sort(compareLength)
 	for (w = 1; w < words.length; w++) {
 		var spells = spells.concat(getSpellings(words[w].toLowerCase(), _elementSpell(words[w].toLowerCase(), [])).sort(compareLength))
@@ -394,18 +411,22 @@ function elementSpell() {
     params.word = word;
   }
 	history.replaceState('', document.title, "index.html"+makeUrlVars(params))
-	document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(params))
-  document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
+	// document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(params))
+//  document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
 	if (/[^A-Za-z ]/g.test(word)) {
 		word = ";"
 	}
 	words = word.split(" ");
-	if (words[0] != "") {
-		for (c=0; c < words.length; c++) {
-			document.getElementById("tables").innerHTML += "<div id="+c.toString()+" class=\"table\"></div>"
-			animateTable(bestSpelling(getSpellings(words[c].toLowerCase(), _elementSpell(words[c].toLowerCase(), []))), c);
-		}
-	}
+  if (getUrlVars()["spell"] != undefined) {
+    allSpellings()
+  } else {
+  	if (words[0] != "") {
+  		for (c=0; c < words.length; c++) {
+  			document.getElementById("tables").innerHTML += "<div id="+c.toString()+" class=\"table\"></div>"
+  			animateTable(bestSpelling(getSpellings(words[c].toLowerCase(), _elementSpell(words[c].toLowerCase(), []))), c);
+  		}
+  	}
+  }
 }
 
 function printElements(spelling) {
@@ -517,9 +538,6 @@ function getInfo() {
   var urlVars = getUrlVars()
   var element = urlVars["e"]
   delete urlVars["e"]
-  document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(urlVars));
-  document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(urlVars))
-  document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(urlVars));
   document.getElementById("elementName").innerHTML = "<strong>"+element+"<strong>"
   if (element.toLowerCase() == "roentgen") {
     element = "roentgen_(unit)"
@@ -529,7 +547,7 @@ function getInfo() {
   httpGetAsync("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&origin=*&redirects=&titles="+element.toLowerCase(), function(response) {
     var wiki = JSON.parse(response);
     for (var v in wiki.query.pages) {
-      document.getElementById("info").innerHTML = wiki.query.pages[v].extract.split("\n")[0]+"<br><br><a href=https://en.wikipedia.org/wiki/"+wiki.query.pages[v].title.replace(" ","%20")+">Read More</a>";
+      document.getElementById("info").innerHTML = wiki.query.pages[v].extract.split("\n")[0]+"<br><br><a href=https://en.wikipedia.org/wiki/"+wiki.query.pages[v].title.replace(" ","%20")+">Read More</a> | <a href=\"index.html\" onclick=\"window.history.back(); return false;\">Back</a>";
     }
   })
 }

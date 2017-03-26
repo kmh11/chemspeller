@@ -8,13 +8,17 @@
 #long {
 	margin-bottom: 1em;
 }
+#optionsDrop {
+	padding-top: 0.5em;
+}
 #options {
-	height: 21.5em;
-	width: 30em;
+	height: 30em;
+	width: 40em;
 	border: 0.09em solid black;
 	margin: 0 auto;
 	text-align: left;
 	padding-left: 1em;
+	font-size: 1.2em;
 }
 #infocont {
 	width: 30em;
@@ -25,9 +29,12 @@
 	font-family: "vera-sans";
 }
 #applyButton {
-	font-size: 3em;
+	position: relative;
+	bottom: -0.3em;
+	margin: auto;
+	font-size: 2em;
 }
-#links a {
+#links a, .links a {
 	color: black;
 	border: 0.09em solid black;
 	text-decoration: none;
@@ -36,11 +43,20 @@
 	margin-right: 0.1em;
 	font-family: "vera-sans", sans-serif;
 }
+#applyDiv {
+	width: 100%;
+	text-align: center;
+	margin: auto;
+}
 input[type=radio], input[type=checkbox] {
 	height: 0.6em;
 	width: 0.6em;
 }
-#links {
+.links {
+	display: inline-block;
+	padding-left: 0.3em;
+}
+#links{
 	font-size: 1.5em;
 	text-align: center;
 	padding-top: 1em;
@@ -67,6 +83,11 @@ table {
 	border: 0.0625vw solid black;
 	border-spacing: 0;
 	margin: 0 auto;
+}
+#optLink {
+	font-size: 1.5em;
+	position: relative;
+	bottom: 0.0em;
 }
 input, button {
 	font-size: 2em;
@@ -213,7 +234,7 @@ table a {
 	#top {
 		font-size: 1.5em;
 	}
-	input, button {
+	input, button, #optLink {
 		font-size: 1.5em
 	}
 	#logoText {
@@ -222,6 +243,14 @@ table a {
 	}
 }
 @media only screen and (min-width: 768px) {
+	#options {
+		height: 23.5em;
+		width: 30em;
+		border: 0.09em solid black;
+		margin: 0 auto;
+		text-align: left;
+		padding-left: 1em;
+	}
 	.symbol {
 		height: 1.4em;
 	}
@@ -231,7 +260,7 @@ table a {
 	#top {
 		font-size: 1em;
 	}
-	input, button {
+	input, button, #optLink {
 		font-size: 1em;
 	}
 	#logoText {
