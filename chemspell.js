@@ -518,6 +518,9 @@ function getInfo() {
   document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(urlVars))
   document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(urlVars));
   document.getElementById("elementName").innerHTML = "<strong>"+element+"<strong>"
+  if (element.toLowerCase() == "roentgen") {
+    element = "roentgen_(unit)"
+  }
   httpGetAsync("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&origin=*&redirects=&titles="+element.toLowerCase(), function(response) {
     var wiki = JSON.parse(response);
     for (var v in wiki.query.pages) {
