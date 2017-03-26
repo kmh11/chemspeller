@@ -152,6 +152,10 @@ body {
 .symbolLogo, .nameLogo, .numberLogo {
 	font-weight: 600;
 }
+#logoLink {
+	color: black;
+	text-decoration: none;
+}
 #logoText p {
     display: block;
     font-size: 2em;

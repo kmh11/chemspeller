@@ -535,6 +535,9 @@ function onPlayerReady() {
 
 function getInfo() {
   color()
+  var vars = getUrlVars()
+  delete vars.e
+  document.getElementById("logoLink").setAttribute("href", "index.html"+makeUrlVars(vars));
   var urlVars = getUrlVars()
   var element = urlVars["e"]
   delete urlVars["e"]
