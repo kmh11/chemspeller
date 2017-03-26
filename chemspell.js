@@ -520,6 +520,8 @@ function getInfo() {
   document.getElementById("elementName").innerHTML = "<strong>"+element+"<strong>"
   if (element.toLowerCase() == "roentgen") {
     element = "roentgen_(unit)"
+  } else if (element.toLowerCase() == "tau") {
+    element = "tau_(particle)"
   }
   httpGetAsync("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&origin=*&redirects=&titles="+element.toLowerCase(), function(response) {
     var wiki = JSON.parse(response);
