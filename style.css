@@ -1,6 +1,9 @@
 .reversed {
 	transform: scale(-1, 1);
 }
+.centerText {
+	text-align: center;
+}
 #defaultWord {
 	font-size: 1em;
 	margin-bottom: 0.5em;
@@ -19,6 +22,12 @@
 	text-align: left;
 	padding-left: 1em;
 	font-size: 1.2em;
+}
+#sitemap {
+	text-align: left;
+}
+#backSitemap {
+	width: 100%;
 }
 #infocont {
 	width: 30em;
@@ -153,7 +162,7 @@ body {
 .symbolLogo, .nameLogo, .numberLogo {
 	font-weight: 600;
 }
-#logoLink {
+.logoLink {
 	color: inherit;
 	text-decoration: none;
 }
@@ -190,6 +199,7 @@ input, button, footer {
 	top: 1.9em;
 }
 footer {
+	padding-top: 1em;
 	text-align: center;
 	font-size: 0.5em;
 	vertical-align: bottom;

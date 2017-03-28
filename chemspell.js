@@ -300,6 +300,34 @@ function makeTable(spelling, line, final) {
   }
 }
 
+function setLinks(page, urlVars=getUrlVars()) {
+  color()
+  if (page != "home") {
+    var links = document.getElementsByClassName("logoLink")
+    console.log(links)
+    for (var l = 0; l < links.length; l++) {
+      console.log(l)
+      links[l].setAttribute("href", "index.html"+makeUrlVars(urlVars));
+    }
+  }
+  if (page == "home") {
+    document.getElementById("sitemapLink").setAttribute("href", "sitemap.html"+makeUrlVars(urlVars));
+    document.getElementById("aboutLink").setAttribute("href", "about.html"+makeUrlVars(urlVars));
+  } else if (page == "about") {
+    document.getElementById("sitemapLink").setAttribute("href", "sitemap.html"+makeUrlVars(urlVars));
+    document.getElementById("homeLink").setAttribute("href", "index.html"+makeUrlVars(urlVars));
+  } else if (page == "sitemap") {
+    document.getElementById("homeLink").setAttribute("href", "index.html"+makeUrlVars(urlVars));
+    document.getElementById("aboutLink").setAttribute("href", "about.html"+makeUrlVars(urlVars));
+    document.getElementById("homeMap").setAttribute("href", "index.html"+makeUrlVars(urlVars));
+    document.getElementById("aboutMap").setAttribute("href", "about.html"+makeUrlVars(urlVars));
+  } else if (page == 'info') {
+    document.getElementById("homeLink").setAttribute("href", "index.html"+makeUrlVars(urlVars));
+    document.getElementById("aboutLink").setAttribute("href", "about.html"+makeUrlVars(urlVars));
+    document.getElementById("sitemapLink").setAttribute("href", "sitemap.html"+makeUrlVars(urlVars));
+  }
+}
+
 function color() {
   var urlVars = getUrlVars()
 	var colorNum = Math.floor(Math.random()*colors.length);
@@ -308,21 +336,18 @@ function color() {
 	var getColor = urlVars.color;
   var bghex = "#"+urlVars.bghex;
 	var getHex = "#"+urlVars.hex;
-	if ((Math.floor(Math.random()*100) === 1)|| trick === "rick") {
+	if (trick === "rick") {
 		youtube("dQw4w9WgXcQ");
 		document.getElementById("color").innerHTML = "<style>.turnWhite {color: white !important; border-color: white !important;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/rickastley.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;}</style>";
-	} else if ((Math.floor(Math.random()*100) === 1)|| trick === "trump") {
+	} else if (trick === "trump") {
 		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
     document.getElementById("color").innerHTML = "<div id=\"trump\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.turnWhite {color: white !important; border-color: white !important;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;}</style>";
-  } else if ((Math.floor(Math.random()*100) === 1) || trick === "yee") {
+  } else if (trick === "yee") {
     youtube("q6EoRBvdVPQ")
     document.getElementById("color").innerHTML = "<style>.turnWhite {color: white !important; border-color: white !important;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/yee.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;}</style>";
   } else if (Math.floor(Math.random()*50) === 1 || trick === "rainbow") {
-  		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
-  		document.getElementById("color").innerHTML = "<div id=\"rainbow\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
-	} else if (Math.floor(Math.random()*50) === 1 || trick === "rainbow") {
-		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
-		document.getElementById("color").innerHTML = "<div id=\"rainbow\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
+  	document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
+  	document.getElementById("color").innerHTML = "<div id=\"rainbow\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
 	} else {
 		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
 		if (getColor !== undefined) {
@@ -411,6 +436,7 @@ function elementSpell() {
     params.word = word;
   }
 	history.replaceState('', document.title, "index.html"+makeUrlVars(params))
+  setLinks('home')
 	// document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(params))
 //  document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
 	if (/[^A-Za-z ]/g.test(word)) {
@@ -535,13 +561,11 @@ function onPlayerReady() {
 
 function getInfo() {
   color()
-  var vars = getUrlVars()
-  delete vars.e
-  document.getElementById("logoLink").setAttribute("href", "index.html"+makeUrlVars(vars));
   var urlVars = getUrlVars()
   var element = urlVars["e"]
   delete urlVars["e"]
   document.getElementById("elementName").innerHTML = "<strong>"+element+"<strong>"
+  setLinks('info', urlVars)
   if (element.toLowerCase() == "roentgen") {
     element = "roentgen_(unit)"
   } else if (element.toLowerCase() == "tau") {
