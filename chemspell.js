@@ -411,6 +411,8 @@ function elementSpell() {
     params.word = word;
   }
 	history.replaceState('', document.title, "index.html"+makeUrlVars(params))
+  ga('set', 'page', "index.html"+makeUrlVars(params))
+  ga('send', 'pageview')
 	// document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(params))
 //  document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
 	if (/[^A-Za-z ]/g.test(word)) {
