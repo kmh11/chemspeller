@@ -81,7 +81,6 @@ input[type=radio], input[type=checkbox] {
 	margin-top: -0.75em;
 }
 table {
-	border: 0.0625vw solid black;
 	border-spacing: 0;
 	margin: 0 auto;
 }
@@ -246,7 +245,7 @@ table a {
 		bottom: 0.7em;
 	}
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 875px) {
 	#infocont {
 		font-size: 1em;
 		width: 30em;
@@ -257,8 +256,9 @@ table a {
 		font-family: "vera-sans";
 	}
 	#options {
+		font-size: 0.9em;
 		height: 23.5em;
-		width: 30em;
+		width: 35em;
 		border: 0.09em solid black;
 		margin: 0 auto;
 		text-align: left;
@@ -289,6 +289,9 @@ table a {
 		font-size: 0.7em;
 		text-align: center;
 		padding-top: 1em;
+	}
+	body {
+		font-size: 1.7em;
 	}
 }
 a {
