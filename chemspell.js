@@ -402,6 +402,7 @@ function elementSpell() {
   }
 	document.getElementById("tables").innerHTML = ""
 	word = document.getElementById("wordInput").value
+  word = word.split("&").join("")
 	params = getUrlVars()
   if (word === "" && params.word != undefined) {
 		word = params.word;
