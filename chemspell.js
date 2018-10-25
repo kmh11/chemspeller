@@ -351,30 +351,6 @@ function bestSpelling(spellings) {
 }
 
 function allSpellings() {
-  // if (getUrlVars()["rev"] != undefined) {
-  //   reversed = false
-  // }
-  // symbols = symbolsOrig
-  // symbolsLower = symbolsOrigLower
-  // if (reversed) {
-  //   symbols = symbols.concat(symbolsReversed)
-  //   symbolsLower = symbolsLower.concat(symbolsReversedLower)
-  // }
-	// color();
-	// document.getElementById("tables").innerHTML = ""
-	// word = document.getElementById("wordInput").value;
-	// params=getUrlVars()
-	// if (word === "" && params.word != undefined) {
-	// 	word = params.word;
-	// 	document.getElementById("wordInput").setAttribute("value", word);
-	// }
-  // if (word !== "") {
-  //   params.word = word;
-  // }
-	// history.replaceState('', document.title, "spellings.html"+makeUrlVars(params))
-	// document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(params));
-  // document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
-	// words = word.split(" ");
 	spells = getSpellings(words[0], _elementSpell(words[0].toLowerCase(), [])).sort(compareLength)
 	for (w = 1; w < words.length; w++) {
 		var spells = spells.concat(getSpellings(words[w].toLowerCase(), _elementSpell(words[w].toLowerCase(), [])).sort(compareLength))
@@ -414,8 +390,6 @@ function elementSpell() {
 	history.replaceState('', document.title, "index.html"+makeUrlVars(params))
   ga('set', 'page', "index.html"+makeUrlVars(params))
   ga('send', 'pageview')
-	// document.getElementById("spellings").setAttribute("href", "spellings.html"+makeUrlVars(params))
-//  document.getElementById("optionsLink").setAttribute("href", "options.html"+makeUrlVars(params));
 	if (/[^A-Za-z ]/g.test(word)) {
 		word = ";"
 	}
