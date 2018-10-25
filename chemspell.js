@@ -83,7 +83,6 @@ function options() {
 		window.location.href = window.location.href+"?"
 	}
   var urlVars = getUrlVars();
-//  document.getElementById("spelling").setAttribute("href", "index.html"+makeUrlVars(urlVars));
   if (urlVars.word != undefined) {
     document.getElementById("defaultWord").value = urlVars.word
   }
@@ -108,7 +107,6 @@ function options() {
   if (urlVars["length"] != undefined) {
     document.getElementById("long").checked = true;
   } else {document.getElementById("short").checked = true}
-//	color()
 }
 
 function link(page) {
