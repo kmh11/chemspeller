@@ -79,9 +79,9 @@ function getUrlVars() {
 }
 
 function options() {
-	if (window.location.href.indexOf("?") === -1) {
-		window.location.href = window.location.href+"?"
-	}
+  if (window.location.href.indexOf("?") === -1) {
+    window.location.href = window.location.href+"?"
+  }
   var urlVars = getUrlVars();
   if (urlVars.word != undefined) {
     document.getElementById("defaultWord").value = urlVars.word
