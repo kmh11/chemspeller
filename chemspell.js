@@ -364,16 +364,16 @@ function allSpellings() {
 function elementSpell() {
 	spellings = []
 	color();
-  reversed = true
-  if (getUrlVars()["rev"] != undefined) {
-    reversed = false
-  }
-  symbols = symbolsOrig
-  symbolsLower = symbolsOrigLower
-  if (reversed) {
-    symbols = symbols.concat(symbolsReversed)
-    symbolsLower = symbolsLower.concat(symbolsReversedLower)
-  }
+	reversed = true
+	if (getUrlVars()["rev"] != undefined) {
+		reversed = false
+	}
+	symbols = symbolsOrig
+	symbolsLower = symbolsOrigLower
+	if (reversed) {
+		symbols = symbols.concat(symbolsReversed)
+		symbolsLower = symbolsLower.concat(symbolsReversedLower)
+	}
 	document.getElementById("tables").innerHTML = ""
 	word = document.getElementById("wordInput").value
   word = word.split("&").join("")
