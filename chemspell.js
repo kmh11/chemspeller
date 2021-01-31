@@ -315,7 +315,7 @@ function color() {
   } else if ((Math.floor(Math.random()*100) === 1) || trick === "yee") {
     youtube("q6EoRBvdVPQ")
     document.getElementById("color").innerHTML = "<style>.turnWhite {color: white !important; border-color: white !important;} .name, .nameLogo {border-top: 0} .number, .numberLogo {border-bottom: 0;} .symbol, .symbolLogo {background-image: url(\"images/yee.gif\"); background-size: 66%; background-position: 0.3em 0; background-repeat: no-repeat; border-bottom: 0; border-top: 0;}</style>";
-  } else if (Math.floor(Math.random()*50) === 1 || trick === "rainbow") {
+  } else if (/* TODO replace with less intense animation */ /* Math.floor(Math.random()*50) === 1 || */ trick === "rainbow") {
   		document.getElementById("vidDiv").innerHTML = "<div id=\"video\"></div>";
   		document.getElementById("color").innerHTML = "<div id=\"rainbow\" style=\"position: fixed; z-index: -98; width: 100%; height: 100%; margin: -8px;\"></div><style>.symbol, .symbolLogo {background-image: url(\"images/rainbow-clouds.gif\"); background-size: 100%; background-position: 0px -0.25em; background-repeat: no-repeat;}</style>";
 	} else if (Math.floor(Math.random()*50) === 1 || trick === "rainbow") {
